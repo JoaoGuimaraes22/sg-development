@@ -1,0 +1,167 @@
+{
+  "nav": {
+    "home": "Início",
+    "work": "Trabalho",
+    "services": "Serviços",
+    "about": "Sobre",
+    "contact": "Contacto"
+  },
+  "hero": {
+    "name": "João Guimarães",
+    "card_bio": "Web Designer · Desenvolvedor · Estrategista de Marketing · Disponível para Freelance",
+    "title_line1": "WEB DESIGN",
+    "title_line2": "& MARKETING",
+    "tagline": "Crio websites que convertem visitantes em clientes — e marcas que as pessoas recordam.",
+    "cta": "Iniciar Projeto",
+    "cta_secondary": "Ver Trabalho",
+    "stats": [
+      { "value": "+10", "label": "Websites Lançados" },
+      { "value": "+8", "label": "Clientes Satisfeitos" },
+      { "value": "+3", "label": "Anos de Experiência" }
+    ]
+  },
+  "work": {
+    "title_line1": "TRABALHO",
+    "title_line2": "SELECIONADO",
+    "cta": "Ver todos os projetos",
+    "projects": [
+      {
+        "slug": "cascais-volley",
+        "title": "Cascais Volley Cup",
+        "description": "Website completo para o maior torneio internacional de voleibol de praia de Portugal — criado para inscrições, patrocinadores e 600+ atletas em 50 equipas.",
+        "long_description": "O Cascais Volley Cup é o maior torneio internacional de voleibol de praia de Portugal, reunindo 50 equipas e 600 atletas de 3 países todos os verões. O evento precisava de uma plataforma que gerisse as inscrições de equipas, comunicasse com patrocinadores e federações, e transmitisse a credibilidade de uma competição internacional.\n\nRedesenhei e reconstruí o site de raiz — com um fluxo de inscrição estruturado, visibilidade clara para patrocinadores, um portal de alojamento via parceiro O-Sports, e uma secção de programa e resultados preparada para a semana do torneio.\n\nO resultado é uma plataforma rápida e profissional que a organização partilha com confiança com jogadores, patrocinadores, imprensa e federações de voleibol.",
+        "image": "/projects/cascais-volley.png",
+        "images": [],
+        "tags": ["Web Design", "Desenvolvimento", "Desporto"],
+        "live": "https://www.cascaisvolley.com",
+        "github": null
+      },
+      {
+        "slug": "koya-bistro",
+        "title": "Koya's Bistro",
+        "description": "Website e sistema de reservas online para um bistro no Mercado de Carcavelos — pizzas no forno a lenha, cocktails artesanais e um fluxo de reservas que converte.",
+        "long_description": "O Koya's Bistro é um café, bar e bistro no Mercado de Carcavelos, que serve comida caseira, tapas, pizzas no forno a lenha e cocktails artesanais das 9h à meia-noite.\n\nO proprietário precisava de um site que correspondesse ao ambiente quente e premium do espaço e tornasse fácil para os clientes encontrar horários, consultar a ementa e reservar mesa online.\n\nCriei um site bilingue (EN/PT) com uma secção de ementa completa em 6 categorias, um sistema de reservas de mesa integrado com seleção de data e hora, integração com o Uber Eats, e um design com tons âmbar e tipografia serifada que reflete a identidade do bistro.\n\nO resultado é um site que funciona tanto como ferramenta de descoberta como canal de reservas diretas.",
+        "image": "/projects/koya-bistro.png",
+        "images": [],
+        "tags": ["Web Design", "Desenvolvimento", "Restauração"],
+        "live": "https://koya-bistro.vercel.app",
+        "github": null
+      },
+      {
+        "slug": "sorriso-plus",
+        "title": "Clínica Dentária SorrisoPlus",
+        "description": "Website completo para uma clínica dentária multidisciplinar em Carcavelos — design focado na confiança com 20+ anos de experiência, 9 especialidades e 8.500+ pacientes.",
+        "long_description": "A SorrisoPlus é uma clínica dentária multidisciplinar em Carcavelos que serve a região de Cascais. Com mais de 20 anos de experiência, 9 especialidades e 8.500+ pacientes, a clínica precisava de um site que transmitisse credibilidade e facilitasse as marcações de novos pacientes.\n\nCriei um site bilingue (PT/EN) estruturado em torno de elementos de confiança — credenciais da equipa, avaliações de pacientes (4,9 de classificação, 247 avaliações), seguradoras aceites e equipamentos avançados (CBCT, scanner intraoral, laser, CAD/CAM). Cada especialidade tem a sua secção dedicada para ajudar os pacientes a encontrar o serviço certo rapidamente.\n\nO site inclui um sistema de marcação com seleção de serviço, formulário de contacto, integração com WhatsApp, Google Maps e um acordeão de FAQ — tudo o que um novo paciente precisa para passar da descoberta à marcação.",
+        "image": "/projects/sorriso-plus.png",
+        "images": [],
+        "tags": ["Web Design", "Desenvolvimento", "Saúde"],
+        "live": "https://dentist-flax-psi.vercel.app",
+        "github": null
+      }
+    ]
+  },
+  "testimonials": {
+    "title_line1": "O QUE OS CLIENTES",
+    "title_line2": "DIZEM",
+    "items": [
+      {
+        "quote": "O João redesenhou o nosso site de torneio do zero. As inscrições online aumentaram significativamente e finalmente temos uma plataforma da qual nos orgulhamos de mostrar a patrocinadores e federações.",
+        "name": "Pedro Almeida",
+        "role": "Diretor do Torneio, Cascais Volley",
+        "avatar": null
+      },
+      {
+        "quote": "O nosso novo site trouxe mais reservas no primeiro mês do que em todo o trimestre anterior. O João percebeu exatamente o que precisávamos — mesmo quando não sabíamos como explicar.",
+        "name": "Marta Costa",
+        "role": "Proprietária, Restaurante Atlântico",
+        "avatar": null
+      },
+      {
+        "quote": "Profissional, rápido e genuinamente investido nos resultados. Não construiu apenas um site — ajudou-nos a pensar como atrair clientes online.",
+        "name": "Ricardo Santos",
+        "role": "Diretor, Clínica Santos & Associados",
+        "avatar": null
+      }
+    ]
+  },
+  "services": {
+    "title_line1": "O QUE",
+    "title_line2": "OFEREÇO",
+    "items": [
+      {
+        "icon": "🖥️",
+        "title": "Web Design & Desenvolvimento",
+        "description": "Websites rápidos e responsivos construídos com tecnologia moderna — desenhados para converter e construídos para durar."
+      },
+      {
+        "icon": "🎨",
+        "title": "Branding & Identidade Visual",
+        "description": "Logótipo, sistemas de cores e guias de marca que dão ao seu negócio uma aparência coerente e profissional."
+      },
+      {
+        "icon": "📈",
+        "title": "SEO & Marketing Digital",
+        "description": "Estratégia de keywords, otimização on-page e planeamento de conteúdo que impulsiona crescimento orgânico real."
+      },
+      {
+        "icon": "📱",
+        "title": "Estratégia para Redes Sociais",
+        "description": "Frameworks de conteúdo, estratégias de publicação e templates visuais que fazem crescer a sua audiência de forma consistente."
+      }
+    ]
+  },
+  "process": {
+    "title_line1": "COMO",
+    "title_line2": "TRABALHO",
+    "steps": [
+      {
+        "number": "01",
+        "title": "Descobrir",
+        "description": "Começo por compreender o seu negócio, objetivos e audiência — para que cada decisão seja fundamentada em estratégia."
+      },
+      {
+        "number": "02",
+        "title": "Desenhar",
+        "description": "Wireframes, mockups e protótipos construídos em torno da clareza e conversão — com o seu feedback em cada etapa."
+      },
+      {
+        "number": "03",
+        "title": "Construir",
+        "description": "Código limpo e performante usando as ferramentas certas para o trabalho. Sem bloat desnecessário, sem atalhos."
+      },
+      {
+        "number": "04",
+        "title": "Lançar",
+        "description": "Deployment, configuração de SEO, analytics e uma entrega que realmente compreende. Estou disponível após o lançamento."
+      }
+    ]
+  },
+  "about": {
+    "title_line1": "SOBRE",
+    "title_line2": "MIM",
+    "bio": "Sou João Guimarães — web designer, desenvolvedor e estrategista de marketing digital baseado em Portugal. Trabalho com negócios locais e marcas em crescimento que querem ter credibilidade online e atrair mais clientes.\n\nComecei a construir websites por curiosidade, depois transformei isso num ofício. Ao longo dos anos combinei sensibilidade de design com profundidade técnica e uma compreensão genuína do que faz as pessoas clicar, confiar e comprar.\n\nQuando não estou a trabalhar num projeto, estou normalmente a explorar novas ferramentas, a ler sobre estratégia de marca, ou a demorar demasiado a preparar um café.",
+    "fun_facts": [
+      { "emoji": "☕", "text": "Obcecado com bom café." },
+      { "emoji": "📚", "text": "Atualmente a ler sobre psicologia de marca." },
+      { "emoji": "🌍", "text": "Disponível para projetos remotos em todo o mundo." },
+      { "emoji": "⚡", "text": "Entrega rápida sem sacrificar qualidade." }
+    ]
+  },
+  "contact": {
+    "title_line1": "VAMOS",
+    "title_line2": "FALAR",
+    "body": "Tem um projeto em mente? Adoraria ouvir sobre ele. Envie-me uma mensagem e responderei dentro de 24 horas.",
+    "form_name": "Nome",
+    "form_email": "Email",
+    "form_message": "Mensagem",
+    "form_name_placeholder": "O Seu Nome",
+    "form_email_placeholder": "o-seu@email.com",
+    "form_message_placeholder": "Fale-me sobre o seu projeto...",
+    "form_submit": "Enviar Mensagem",
+    "form_success": "Mensagem enviada! Responderei em breve.",
+    "email_label": "Envie-me um email",
+    "email": "Jssgmrs22@gmail.com",
+    "github": "https://github.com/JoaoGuimaraes22",
+    "linkedin": "https://www.linkedin.com/in/joão-sebastião-guimarães-4abaa7197/"
+  }
+}

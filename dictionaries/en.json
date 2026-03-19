@@ -1,0 +1,167 @@
+{
+  "nav": {
+    "home": "Home",
+    "work": "Work",
+    "services": "Services",
+    "about": "About",
+    "contact": "Contact"
+  },
+  "hero": {
+    "name": "João Guimarães",
+    "card_bio": "Web Designer · Developer · Marketing Strategist · Available for Freelance",
+    "title_line1": "WEB DESIGN",
+    "title_line2": "& MARKETING",
+    "tagline": "I build websites that convert visitors into clients — and brands that people remember.",
+    "cta": "Start a Project",
+    "cta_secondary": "See My Work",
+    "stats": [
+      { "value": "+10", "label": "Websites Launched" },
+      { "value": "+8", "label": "Happy Clients" },
+      { "value": "+3", "label": "Years Experience" }
+    ]
+  },
+  "work": {
+    "title_line1": "SELECTED",
+    "title_line2": "WORK",
+    "cta": "See all projects",
+    "projects": [
+      {
+        "slug": "cascais-volley",
+        "title": "Cascais Volley Cup",
+        "description": "Full website for Portugal's largest international beach volleyball tournament — built for registrations, sponsors, and 600+ athletes across 50 teams.",
+        "long_description": "Cascais Volley Cup is Portugal's largest international beach volleyball tournament, bringing together 50 teams and 600 athletes from 3 countries each summer. The event needed a platform that could handle team registrations, communicate with sponsors and federations, and project the credibility of an international competition.\n\nI redesigned and rebuilt the site from the ground up — with a structured registration flow, clear sponsor placement, an accommodation portal via partner O-Sports, and a schedule and results section built for tournament week.\n\nThe result is a fast, professional platform the organization confidently shares with players, sponsors, press, and the volleyball federations.",
+        "image": "/projects/cascais-volley.png",
+        "images": [],
+        "tags": ["Web Design", "Development", "Sports"],
+        "live": "https://www.cascaisvolley.com",
+        "github": null
+      },
+      {
+        "slug": "koya-bistro",
+        "title": "Koya's Bistro",
+        "description": "Website and online booking system for a bistro in Mercado de Carcavelos — wood-fired pizzas, craft cocktails, and a table reservation flow that converts.",
+        "long_description": "Koya's Bistro is a café, bar and bistro located inside Mercado de Carcavelos, serving homemade food, tapas, wood-fired pizzas, and craft cocktails from 9am to midnight.\n\nThe owner needed a site that matched the warm, premium feel of the space and made it easy for customers to find hours, browse the menu, and book a table online.\n\nI built a multilingual (EN/PT) site with a full menu section across 6 categories, an integrated table reservation system with date and time selection, Uber Eats integration, and a design that uses warm amber tones and serif typography to match the bistro's identity.\n\nThe result is a site that works as both a discovery tool and a direct booking channel.",
+        "image": "/projects/koya-bistro.png",
+        "images": [],
+        "tags": ["Web Design", "Development", "Hospitality"],
+        "live": "https://koya-bistro.vercel.app",
+        "github": null
+      },
+      {
+        "slug": "sorriso-plus",
+        "title": "SorrisoPlus Dental Clinic",
+        "description": "Full website for a multidisciplinary dental clinic in Carcavelos — trust-focused design built around 20+ years of practice, 9 specialties, and 8,500+ patients.",
+        "long_description": "SorrisoPlus is a multidisciplinary dental clinic in Carcavelos serving the greater Cascais area. With over 20 years of experience, 9 specialties, and 8,500+ patients, the clinic needed a site that communicated credibility and made it easy for new patients to book an appointment.\n\nI built a multilingual (PT/EN) site structured around trust signals — team credentials, patient reviews (4.9 rating, 247 reviews), insurance providers, and advanced equipment (CBCT, intraoral scanner, laser, CAD/CAM). Each specialty has its own dedicated section to help patients find the right service quickly.\n\nThe site includes an appointment booking system with service selection, a contact form, WhatsApp integration, Google Maps, and an FAQ accordion — everything a new patient needs to go from discovery to booked.",
+        "image": "/projects/sorriso-plus.png",
+        "images": [],
+        "tags": ["Web Design", "Development", "Healthcare"],
+        "live": "https://dentist-flax-psi.vercel.app",
+        "github": null
+      }
+    ]
+  },
+  "testimonials": {
+    "title_line1": "WHAT CLIENTS",
+    "title_line2": "SAY",
+    "items": [
+      {
+        "quote": "João redesigned our tournament website from scratch. Online registrations increased significantly and we finally have a platform we're proud to show sponsors and federations.",
+        "name": "Pedro Almeida",
+        "role": "Tournament Director, Cascais Volley",
+        "avatar": null
+      },
+      {
+        "quote": "Our new website brought more bookings in the first month than the entire previous quarter. João understood exactly what we needed — even when we didn't know how to explain it.",
+        "name": "Marta Costa",
+        "role": "Owner, Restaurante Atlântico",
+        "avatar": null
+      },
+      {
+        "quote": "Professional, fast, and genuinely invested in the results. He didn't just build a site — he helped us think through how to actually attract clients online.",
+        "name": "Ricardo Santos",
+        "role": "Director, Clínica Santos & Associados",
+        "avatar": null
+      }
+    ]
+  },
+  "services": {
+    "title_line1": "WHAT I",
+    "title_line2": "OFFER",
+    "items": [
+      {
+        "icon": "🖥️",
+        "title": "Web Design & Development",
+        "description": "Fast, responsive websites built with modern tech — designed to convert and built to last."
+      },
+      {
+        "icon": "🎨",
+        "title": "Branding & Visual Identity",
+        "description": "Logo, color systems, and brand guidelines that give your business a coherent, professional look."
+      },
+      {
+        "icon": "📈",
+        "title": "SEO & Digital Marketing",
+        "description": "Keyword strategy, on-page optimization, and content planning that drives real organic growth."
+      },
+      {
+        "icon": "📱",
+        "title": "Social Media Strategy",
+        "description": "Content frameworks, posting strategies, and visual templates that grow your audience consistently."
+      }
+    ]
+  },
+  "process": {
+    "title_line1": "HOW I",
+    "title_line2": "WORK",
+    "steps": [
+      {
+        "number": "01",
+        "title": "Discover",
+        "description": "I start by understanding your business, goals, and audience — so every decision is grounded in strategy."
+      },
+      {
+        "number": "02",
+        "title": "Design",
+        "description": "Wireframes, mockups, and prototypes built around clarity and conversion — with your feedback at every step."
+      },
+      {
+        "number": "03",
+        "title": "Build",
+        "description": "Clean, performant code using the right tools for the job. No unnecessary bloat, no shortcuts."
+      },
+      {
+        "number": "04",
+        "title": "Launch",
+        "description": "Deployment, SEO setup, analytics, and a handoff you actually understand. I stay available post-launch."
+      }
+    ]
+  },
+  "about": {
+    "title_line1": "ABOUT",
+    "title_line2": "ME",
+    "bio": "I'm João Guimarães — a web designer, developer, and digital marketing strategist based in Portugal. I work with local businesses and growing brands that want to look credible online and attract more customers.\n\nI started building websites out of curiosity, then turned that into a craft. Over the years I've combined design sensibility with technical depth and a genuine understanding of what makes people click, trust, and buy.\n\nWhen I'm not working on a project, I'm usually exploring new tools, reading about brand strategy, or taking too long to make coffee.",
+    "fun_facts": [
+      { "emoji": "☕", "text": "Obsessive about good coffee." },
+      { "emoji": "📚", "text": "Currently reading about brand psychology." },
+      { "emoji": "🌍", "text": "Available for remote projects worldwide." },
+      { "emoji": "⚡", "text": "Fast turnaround without sacrificing quality." }
+    ]
+  },
+  "contact": {
+    "title_line1": "LET'S",
+    "title_line2": "TALK",
+    "body": "Have a project in mind? I'd love to hear about it. Send me a message and I'll get back to you within 24 hours.",
+    "form_name": "Name",
+    "form_email": "Email",
+    "form_message": "Message",
+    "form_name_placeholder": "Your Name",
+    "form_email_placeholder": "your@email.com",
+    "form_message_placeholder": "Tell me about your project...",
+    "form_submit": "Send Message",
+    "form_success": "Message sent! I'll get back to you soon.",
+    "email_label": "Email me",
+    "email": "Jssgmrs22@gmail.com",
+    "github": "https://github.com/JoaoGuimaraes22",
+    "linkedin": "https://www.linkedin.com/in/joão-sebastião-guimarães-4abaa7197/"
+  }
+}
