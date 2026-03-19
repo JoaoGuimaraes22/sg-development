@@ -60,7 +60,7 @@ export default async function WorkPage({
         {project.description}
       </p>
 
-      {/* Mobile screenshots */}
+      {/* Screenshot gallery */}
       {project.images && project.images.length > 0 && (
         <ScreenshotGallery images={project.images} title={project.title} />
       )}

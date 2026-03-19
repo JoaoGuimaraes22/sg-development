@@ -1,7 +1,6 @@
 "use client";
 
-import { useRef, useEffect, useState } from "react";
-import Image from "next/image";
+import { useRef, useEffect, useState, useCallback } from "react";
 
 interface Props {
   images: string[];
@@ -9,165 +8,134 @@ interface Props {
 }
 
 export default function ScreenshotGallery({ images, title }: Props) {
+  const count = images.length;
+  const tripled = [...images, ...images, ...images];
   const scrollRef = useRef<HTMLDivElement>(null);
   const [activeIndex, setActiveIndex] = useState(0);
-  const itemStrideRef = useRef(0);
-  const n = images.length;
+  const strideRef = useRef(0);
+  const singleSetWidthRef = useRef(0);
 
-  // Triple the array so we can scroll infinitely in both directions
-  const looped = [...images, ...images, ...images];
+  const measure = useCallback(() => {
+    const el = scrollRef.current;
+    if (!el || el.children.length < 2) return;
+    const first = el.children[0] as HTMLElement;
+    const second = el.children[1] as HTMLElement;
+    const stride =
+      second.getBoundingClientRect().left - first.getBoundingClientRect().left;
+    if (stride <= 0) return;
+    strideRef.current = stride;
+    singleSetWidthRef.current = stride * count;
+    // Start in the middle set (copy 2)
+    el.scrollLeft = stride * count;
+  }, [count]);
+
+  useEffect(() => {
+    const id = requestAnimationFrame(measure);
+    window.addEventListener("resize", measure);
+    return () => {
+      cancelAnimationFrame(id);
+      window.removeEventListener("resize", measure);
+    };
+  }, [measure]);
+
+  const handleScroll = useCallback(() => {
+    const el = scrollRef.current;
+    const stride = strideRef.current;
+    const ssw = singleSetWidthRef.current;
+    if (!el || !stride || !ssw) return;
+
+    const sl = el.scrollLeft;
+    const rawIndex = Math.round(sl / stride);
+    setActiveIndex(((rawIndex % count) + count) % count);
+
+    // Silent teleport to keep user in the middle set
+    if (sl < ssw) {
+      el.scrollLeft = sl + ssw;
+    } else if (sl >= 2 * ssw) {
+      el.scrollLeft = sl - ssw;
+    }
+  }, [count]);
 
   useEffect(() => {
     const el = scrollRef.current;
     if (!el) return;
+    el.addEventListener("scroll", handleScroll, { passive: true });
+    return () => el.removeEventListener("scroll", handleScroll);
+  }, [handleScroll]);
 
-    // Measure exact positions at scrollLeft=0 (before we touch anything)
-    const containerLeft = el.getBoundingClientRect().left;
-    const copy2First = el.children[n] as HTMLElement;
-    const copy2Second = el.children[n + 1] as HTMLElement;
-
-    // singleSetWidth = scroll distance for one full copy of images
-    const singleSetWidth =
-      copy2First.getBoundingClientRect().left - containerLeft;
-    // itemStride = scroll distance per image (width + gap)
-    const itemStride =
-      copy2Second.getBoundingClientRect().left -
-      copy2First.getBoundingClientRect().left;
-    itemStrideRef.current = itemStride;
-
-    // Start in the middle copy
-    el.scrollLeft = singleSetWidth;
-
-    const onScroll = () => {
-      // Seamless infinite reset — jump by exactly one set width
-      if (el.scrollLeft >= singleSetWidth * 2) {
-        el.scrollLeft -= singleSetWidth;
-      } else if (el.scrollLeft < 50) {
-        el.scrollLeft += singleSetWidth;
-      }
-
-      // Active dot index (0 to n-1)
-      const offset = el.scrollLeft - singleSetWidth;
-      const idx = ((Math.round(offset / itemStride) % n) + n) % n;
-      setActiveIndex(idx);
-    };
-
-    el.addEventListener("scroll", onScroll, { passive: true });
-
-    // Mouse drag scroll (desktop equivalent of touch scroll)
-    let isDown = false;
-    let startX = 0;
-    let scrollStart = 0;
-
-    const onMouseDown = (e: MouseEvent) => {
-      isDown = true;
-      startX = e.pageX;
-      scrollStart = el.scrollLeft;
-      el.style.cursor = "grabbing";
-    };
-    const onMouseMove = (e: MouseEvent) => {
-      if (!isDown) return;
-      e.preventDefault();
-      el.scrollLeft = scrollStart - (e.pageX - startX);
-    };
-    const onMouseUp = () => {
-      isDown = false;
-      el.style.cursor = "";
-    };
-
-    el.addEventListener("mousedown", onMouseDown);
-    window.addEventListener("mousemove", onMouseMove);
-    window.addEventListener("mouseup", onMouseUp);
-
-    return () => {
-      el.removeEventListener("scroll", onScroll);
-      el.removeEventListener("mousedown", onMouseDown);
-      window.removeEventListener("mousemove", onMouseMove);
-      window.removeEventListener("mouseup", onMouseUp);
-    };
-  }, [n]);
-
-  const scroll = (dir: 1 | -1) => {
+  const scrollToIndex = (index: number) => {
     const el = scrollRef.current;
-    if (!el) return;
-    el.scrollBy({ left: dir * itemStrideRef.current, behavior: "smooth" });
+    const stride = strideRef.current;
+    const ssw = singleSetWidthRef.current;
+    if (!el || !stride || !ssw) return;
+    // Always navigate within the middle set
+    el.scrollTo({ left: ssw + index * stride, behavior: "smooth" });
+  };
+
+  const scrollBy = (dir: 1 | -1) => {
+    const el = scrollRef.current;
+    const stride = strideRef.current;
+    if (!el || !stride) return;
+    el.scrollBy({ left: dir * stride, behavior: "smooth" });
   };
 
   return (
-    <div className="relative mb-16">
-      {/* Desktop arrows */}
-      <div className="hidden md:flex justify-between mb-3">
+    <div className="mb-12">
+      {/* Gallery strip + arrows (desktop) */}
+      <div className="relative">
+        {/* Left arrow */}
         <button
-          onClick={() => scroll(-1)}
-          className="flex items-center gap-1.5 text-xs text-zinc-400 hover:text-zinc-900 transition-colors"
+          onClick={() => scrollBy(-1)}
+          aria-label="Previous screenshot"
+          className="hidden md:flex absolute -left-5 top-1/2 -translate-y-1/2 z-10 items-center justify-center w-9 h-9 rounded-full bg-white border border-zinc-200 shadow-sm hover:shadow-md hover:border-zinc-300 transition-all"
         >
-          <svg
-            width="14"
-            height="14"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          >
-            <path d="M19 12H5M12 19l-7-7 7-7" />
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M15 18l-6-6 6-6" />
           </svg>
-          Prev
         </button>
-        <button
-          onClick={() => scroll(1)}
-          className="flex items-center gap-1.5 text-xs text-zinc-400 hover:text-zinc-900 transition-colors"
+
+        <div
+          ref={scrollRef}
+          className="flex gap-4 overflow-x-auto snap-x snap-mandatory scrollbar-none -mx-6 px-6 md:mx-0 md:px-0"
         >
-          Next
-          <svg
-            width="14"
-            height="14"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          >
-            <path d="M5 12h14M12 5l7 7-7 7" />
+          {tripled.map((src, i) => (
+            <div
+              key={i}
+              className="shrink-0 snap-start w-full md:w-[calc((100%_-_2rem)_/_3)] overflow-hidden rounded-xl border border-zinc-100 bg-white shadow-sm"
+            >
+              <img
+                src={src}
+                alt={`${title} screenshot ${(i % count) + 1}`}
+                className="w-full h-auto"
+                draggable={false}
+              />
+            </div>
+          ))}
+        </div>
+
+        {/* Right arrow */}
+        <button
+          onClick={() => scrollBy(1)}
+          aria-label="Next screenshot"
+          className="hidden md:flex absolute -right-5 top-1/2 -translate-y-1/2 z-10 items-center justify-center w-9 h-9 rounded-full bg-white border border-zinc-200 shadow-sm hover:shadow-md hover:border-zinc-300 transition-all"
+        >
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M9 18l6-6-6-6" />
           </svg>
         </button>
       </div>
 
-      {/* Scroll strip */}
-      <div
-        ref={scrollRef}
-        className="flex gap-3 overflow-x-auto snap-x snap-mandatory scrollbar-none pb-3 cursor-grab"
-      >
-        {looped.map((src, i) => (
-          <div
-            key={i}
-            className="relative flex-none snap-start overflow-hidden rounded-2xl border border-zinc-100 shadow-sm bg-zinc-50
-                       w-full h-[calc(100svh-6rem)] md:h-auto md:w-56 md:aspect-9/19.5"
-          >
-            <Image
-              src={src}
-              alt={`${title} screenshot ${(i % n) + 1}`}
-              fill
-              className="object-cover object-top"
-              sizes="(min-width: 768px) 210px, 100vw"
-            />
-          </div>
-        ))}
-      </div>
-
-      {/* Fade edges — always visible, signal more content in both directions */}
-      <div className="pointer-events-none absolute right-0 top-0 bottom-3 w-2 md:w-4 bg-linear-to-l from-[#fafafa] to-transparent" />
-      <div className="pointer-events-none absolute left-0 top-0 bottom-3 w-2 md:w-4 bg-linear-to-r from-[#fafafa] to-transparent" />
-
-      {/* Dot indicators — mobile only */}
-      <div className="mt-4 flex items-center justify-center gap-2 md:hidden">
+      {/* Dot indicators — always visible */}
+      <div className="mt-4 flex justify-center gap-2">
         {images.map((_, i) => (
-          <div
+          <button
             key={i}
-            className={`h-1.5 rounded-full transition-all duration-300 ${
-              i === activeIndex ? "w-4 bg-indigo-600" : "w-1.5 bg-zinc-300"
+            onClick={() => scrollToIndex(i)}
+            aria-label={`Go to screenshot ${i + 1}`}
+            className={`rounded-full transition-all duration-300 h-1.5 ${
+              activeIndex === i
+                ? "w-4 bg-indigo-600"
+                : "w-1.5 bg-zinc-300 hover:bg-zinc-400"
             }`}
           />
         ))}

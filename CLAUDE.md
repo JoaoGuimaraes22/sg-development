@@ -27,7 +27,6 @@ app/
     page.tsx                  sticky two-column layout (xl:mx-auto xl:max-w-350)
     work/[slug]/
       page.tsx                project detail page (server component)
-      ScreenshotGallery.tsx   client component — infinite scroll gallery
     components/
       Navbar.tsx              fixed top, logo | NavDropdown | LanguageSwitcher
       NavDropdown.tsx         IntersectionObserver section tracking
@@ -110,29 +109,16 @@ Server component. Reads project from dictionary by slug. Renders:
 
 `generateStaticParams` pre-generates all 12 routes (6 projects × 2 locales).
 
-## ScreenshotGallery (`work/[slug]/ScreenshotGallery.tsx`)
-
-Client component. Receives `images: string[]` + `title: string`.
-
-- Triples the array internally for seamless infinite scroll in both directions
-- On mount: measures exact DOM positions (`getBoundingClientRect`) to get `singleSetWidth` and `itemStride`; starts `scrollLeft` at copy 2
-- On scroll: resets `scrollLeft` by ±`singleSetWidth` when reaching edges (keeps user in copy 2)
-- **Mobile** (`w-full`): 1 image per view, snap scroll, dot indicators shown
-- **Desktop** (`md:w-[calc((100%_-_2rem)_/_3.3)]`): ~3.3 images visible, no dots
-- `snap-x snap-mandatory` + `snap-start` per item
-- Fade gradients on both edges always visible
-- Dot pills: `h-1.5 w-1.5 bg-zinc-300` inactive → `w-4 bg-indigo-600` active, `md:hidden`
-
 ## Projects (6 live)
 
-| Slug | Title | Folder | Live |
-| --- | --- | --- | --- |
-| `cascais-volley` | Cascais Volley Cup | `cascaisvolley/` | cascaisvolley.com |
-| `koya-bistro` | Koya's Bistro | `restaurant/` | koya-bistro.vercel.app |
-| `sorriso-plus` | SorrisoPlus Dental Clinic | `clinic/` | dentist-flax-psi.vercel.app |
-| `aquafix` | AquaFix Plumbing | `plumber/` | plumber-xi.vercel.app |
-| `revicar` | Revicar Auto Repair | `mechanic/` | mechanic-five.vercel.app |
-| `bella-hair-salon` | Bella Hair Salon | `hairsalon/` | hair-salon-omega-taupe.vercel.app |
+| Slug               | Title                     | Folder           | Live                              |
+| ------------------ | ------------------------- | ---------------- | --------------------------------- |
+| `cascais-volley`   | Cascais Volley Cup        | `cascaisvolley/` | cascaisvolley.com                 |
+| `koya-bistro`      | Koya's Bistro             | `restaurant/`    | koya-bistro.vercel.app            |
+| `sorriso-plus`     | SorrisoPlus Dental Clinic | `clinic/`        | dentist-flax-psi.vercel.app       |
+| `aquafix`          | AquaFix Plumbing          | `plumber/`       | plumber-xi.vercel.app             |
+| `revicar`          | Revicar Auto Repair       | `mechanic/`      | mechanic-five.vercel.app          |
+| `bella-hair-salon` | Bella Hair Salon          | `hairsalon/`     | hair-salon-omega-taupe.vercel.app |
 
 Note: folder names under `public/projects/` do not always match slugs (e.g. `hairsalon/` → slug `bella-hair-salon`).
 
@@ -263,5 +249,5 @@ Note: folder names under `public/projects/` do not always match slugs (e.g. `hai
 - `React.FormEvent` deprecated in React 19 — use `{ preventDefault(): void }`
 - ScrollProgress `z-60` (above Navbar `z-50`)
 - `app/page.tsx` must export a default or build fails
-- `globals.css` has `.scrollbar-none` utility (hide scrollbars on scroll containers)
 - Project image folder names don't always match slugs — see Projects table above
+- Use AskUserQuestion if any doubts
