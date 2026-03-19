@@ -5,7 +5,9 @@ import LanguageSwitcher from "./LanguageSwitcher";
 interface NavDict {
   home: string;
   work: string;
+  reviews: string;
   services: string;
+  workflow: string;
   about: string;
   contact: string;
 }
@@ -19,7 +21,9 @@ export default function Navbar({ locale, nav }: NavbarProps) {
   const sections = [
     { id: "home", label: nav.home },
     { id: "work", label: nav.work },
+    { id: "testimonials", label: nav.reviews },
     { id: "services", label: nav.services },
+    { id: "process", label: nav.workflow },
     { id: "about", label: nav.about },
     { id: "contact", label: nav.contact },
   ];

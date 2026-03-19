@@ -2,7 +2,9 @@
   "nav": {
     "home": "Início",
     "work": "Trabalho",
+    "reviews": "Avaliações",
     "services": "Serviços",
+    "workflow": "Processo",
     "about": "Sobre",
     "contact": "Contacto"
   },
