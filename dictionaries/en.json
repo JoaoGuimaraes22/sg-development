@@ -15,9 +15,18 @@
     "cta": "Start a Project",
     "cta_secondary": "See My Work",
     "stats": [
-      { "value": "+10", "label": "Websites Launched" },
-      { "value": "+8", "label": "Happy Clients" },
-      { "value": "+3", "label": "Years Experience" }
+      {
+        "value": "+10",
+        "label": "Websites Launched"
+      },
+      {
+        "value": "+8",
+        "label": "Happy Clients"
+      },
+      {
+        "value": "+3",
+        "label": "Years Experience"
+      }
     ]
   },
   "work": {
@@ -31,8 +40,18 @@
         "description": "Full website for Portugal's largest international beach volleyball tournament — built for registrations, sponsors, and 600+ athletes across 50 teams.",
         "long_description": "Cascais Volley Cup is Portugal's largest international beach volleyball tournament, bringing together 50 teams and 600 athletes from 3 countries each summer. The event needed a platform that could handle team registrations, communicate with sponsors and federations, and project the credibility of an international competition.\n\nI redesigned and rebuilt the site from the ground up — with a structured registration flow, clear sponsor placement, an accommodation portal via partner O-Sports, and a schedule and results section built for tournament week.\n\nThe result is a fast, professional platform the organization confidently shares with players, sponsors, press, and the volleyball federations.",
         "image": "/projects/cascais-volley.png",
-        "images": [],
-        "tags": ["Web Design", "Development", "Sports"],
+        "images": [
+          "/projects/cascaisvolley/1.png",
+          "/projects/cascaisvolley/2.png",
+          "/projects/cascaisvolley/3.png",
+          "/projects/cascaisvolley/4.png",
+          "/projects/cascaisvolley/5.png"
+        ],
+        "tags": [
+          "Web Design",
+          "Development",
+          "Sports"
+        ],
         "live": "https://www.cascaisvolley.com",
         "github": null
       },
@@ -42,8 +61,18 @@
         "description": "Website and online booking system for a bistro in Mercado de Carcavelos — wood-fired pizzas, craft cocktails, and a table reservation flow that converts.",
         "long_description": "Koya's Bistro is a café, bar and bistro located inside Mercado de Carcavelos, serving homemade food, tapas, wood-fired pizzas, and craft cocktails from 9am to midnight.\n\nThe owner needed a site that matched the warm, premium feel of the space and made it easy for customers to find hours, browse the menu, and book a table online.\n\nI built a multilingual (EN/PT) site with a full menu section across 6 categories, an integrated table reservation system with date and time selection, Uber Eats integration, and a design that uses warm amber tones and serif typography to match the bistro's identity.\n\nThe result is a site that works as both a discovery tool and a direct booking channel.",
         "image": "/projects/koya-bistro.png",
-        "images": [],
-        "tags": ["Web Design", "Development", "Hospitality"],
+        "images": [
+          "/projects/restaurant/1.png",
+          "/projects/restaurant/2.png",
+          "/projects/restaurant/3.png",
+          "/projects/restaurant/4.png",
+          "/projects/restaurant/5.png"
+        ],
+        "tags": [
+          "Web Design",
+          "Development",
+          "Hospitality"
+        ],
         "live": "https://koya-bistro.vercel.app",
         "github": null
       },
@@ -53,9 +82,82 @@
         "description": "Full website for a multidisciplinary dental clinic in Carcavelos — trust-focused design built around 20+ years of practice, 9 specialties, and 8,500+ patients.",
         "long_description": "SorrisoPlus is a multidisciplinary dental clinic in Carcavelos serving the greater Cascais area. With over 20 years of experience, 9 specialties, and 8,500+ patients, the clinic needed a site that communicated credibility and made it easy for new patients to book an appointment.\n\nI built a multilingual (PT/EN) site structured around trust signals — team credentials, patient reviews (4.9 rating, 247 reviews), insurance providers, and advanced equipment (CBCT, intraoral scanner, laser, CAD/CAM). Each specialty has its own dedicated section to help patients find the right service quickly.\n\nThe site includes an appointment booking system with service selection, a contact form, WhatsApp integration, Google Maps, and an FAQ accordion — everything a new patient needs to go from discovery to booked.",
         "image": "/projects/sorriso-plus.png",
-        "images": [],
-        "tags": ["Web Design", "Development", "Healthcare"],
+        "images": [
+          "/projects/clinic/1.png",
+          "/projects/clinic/2.png",
+          "/projects/clinic/3.png",
+          "/projects/clinic/4.png",
+          "/projects/clinic/5.png"
+        ],
+        "tags": [
+          "Web Design",
+          "Development",
+          "Healthcare"
+        ],
         "live": "https://dentist-flax-psi.vercel.app",
+        "github": null
+      },
+      {
+        "slug": "aquafix",
+        "title": "AquaFix Plumbing",
+        "description": "Emergency plumbing website for a 24/7 service in Cascais — 30-minute response guarantee, WhatsApp-first contact, and 4.9-star reviews front and center.",
+        "long_description": "AquaFix is a professional emergency plumbing service operating across Cascais and surrounding areas. With 15+ years of experience and a 30-minute response time guarantee, they needed a site that converts panicked first-time visitors into immediate calls — not one that buries the phone number.\n\nI built a mobile-first site with a fixed WhatsApp and call button, a clear 6-service breakdown, a service area map with estimated response times, and a review section showing 180+ verified ratings. The dark navy design projects professionalism without losing urgency.\n\nFree quote promise, FAQ section, and a contact form round out the experience for non-emergency inquiries.",
+        "image": "/projects/aquafix.png",
+        "images": [
+          "/projects/plumber/1.png",
+          "/projects/plumber/2.png",
+          "/projects/plumber/3.png",
+          "/projects/plumber/4.png",
+          "/projects/plumber/5.png"
+        ],
+        "tags": [
+          "Web Design",
+          "Development",
+          "Local Services"
+        ],
+        "live": "https://plumber-xi.vercel.app",
+        "github": null
+      },
+      {
+        "slug": "revicar",
+        "title": "Revicar Auto Repair",
+        "description": "Website for a multi-brand auto repair shop in Carcavelos — transparent pricing, 9 service categories, and a contact form built to capture repair inquiries.",
+        "long_description": "Revicar is a full-service automotive repair shop in Carcavelos covering everything from mechanics and bodywork to electrics, AC, tires, and diagnostics — for all makes and models. Their reputation was built on trust and transparent pricing, and the site needed to reflect that.\n\nI built a multilingual (PT/EN) site with a strong hero, a detailed 9-category services section, customer testimonials (4.9 rating, 120 reviews), and a contact form that captures the vehicle info and service description upfront — saving time on both sides.\n\nThe design uses a dark overlay with red accents and Oswald typography, giving the brand a confident, no-nonsense feel that matches the workshop environment.",
+        "image": "/projects/revicar.png",
+        "images": [
+          "/projects/mechanic/1.png",
+          "/projects/mechanic/2.png",
+          "/projects/mechanic/3.png",
+          "/projects/mechanic/4.png",
+          "/projects/mechanic/5.png"
+        ],
+        "tags": [
+          "Web Design",
+          "Development",
+          "Automotive"
+        ],
+        "live": "https://mechanic-five.vercel.app",
+        "github": null
+      },
+      {
+        "slug": "bella-hair-salon",
+        "title": "Bella Hair Salon",
+        "description": "Website and booking system for a hair salon in Carcavelos — 10+ years of experience, a transformation gallery, and a seamless appointment flow.",
+        "long_description": "Bella is a hair salon in Carcavelos specialising in color, highlights, treatments, and beauty services. With 10+ years of experience, 2,000+ clients, and premium partnerships with Kérastase, L'Oréal, and Olaplex, they needed a site that showcased their work and made booking effortless.\n\nI built a visually-led site with a transformation gallery of before/after work, individual team profiles with specialisations, a full service menu with pricing (€10–€120), and a booking system with a service dropdown.\n\nThe result pairs strong imagery with clear conversion points — every section ends with a 'Book Now' CTA, so visitors always know what to do next.",
+        "image": "/projects/hair-salon.png",
+        "images": [
+          "/projects/hairsalon/1.png",
+          "/projects/hairsalon/2.png",
+          "/projects/hairsalon/3.png",
+          "/projects/hairsalon/4.png",
+          "/projects/hairsalon/5.png"
+        ],
+        "tags": [
+          "Web Design",
+          "Development",
+          "Beauty"
+        ],
+        "live": "https://hair-salon-omega-taupe.vercel.app",
         "github": null
       }
     ]
@@ -141,10 +243,22 @@
     "title_line2": "ME",
     "bio": "I'm João Guimarães — a web designer, developer, and digital marketing strategist based in Portugal. I work with local businesses and growing brands that want to look credible online and attract more customers.\n\nI started building websites out of curiosity, then turned that into a craft. Over the years I've combined design sensibility with technical depth and a genuine understanding of what makes people click, trust, and buy.\n\nWhen I'm not working on a project, I'm usually exploring new tools, reading about brand strategy, or taking too long to make coffee.",
     "fun_facts": [
-      { "emoji": "☕", "text": "Obsessive about good coffee." },
-      { "emoji": "📚", "text": "Currently reading about brand psychology." },
-      { "emoji": "🌍", "text": "Available for remote projects worldwide." },
-      { "emoji": "⚡", "text": "Fast turnaround without sacrificing quality." }
+      {
+        "emoji": "☕",
+        "text": "Obsessive about good coffee."
+      },
+      {
+        "emoji": "📚",
+        "text": "Currently reading about brand psychology."
+      },
+      {
+        "emoji": "🌍",
+        "text": "Available for remote projects worldwide."
+      },
+      {
+        "emoji": "⚡",
+        "text": "Fast turnaround without sacrificing quality."
+      }
     ]
   },
   "contact": {

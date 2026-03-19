@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import { type Locale } from "../../../../i18n-config";
 import { getDictionary } from "../../../../get-dictionary";
+import ScreenshotGallery from "./ScreenshotGallery";
 
 interface Params {
   locale: string;
@@ -58,6 +59,11 @@ export default async function WorkPage({
       <p className="mb-12 text-base text-zinc-600 leading-relaxed border-l-4 border-indigo-200 pl-4">
         {project.description}
       </p>
+
+      {/* Mobile screenshots */}
+      {project.images && project.images.length > 0 && (
+        <ScreenshotGallery images={project.images} title={project.title} />
+      )}
 
       {/* Body */}
       <div className="space-y-6">

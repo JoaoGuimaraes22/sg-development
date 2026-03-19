@@ -15,9 +15,18 @@
     "cta": "Iniciar Projeto",
     "cta_secondary": "Ver Trabalho",
     "stats": [
-      { "value": "+10", "label": "Websites Lançados" },
-      { "value": "+8", "label": "Clientes Satisfeitos" },
-      { "value": "+3", "label": "Anos de Experiência" }
+      {
+        "value": "+10",
+        "label": "Websites Lançados"
+      },
+      {
+        "value": "+8",
+        "label": "Clientes Satisfeitos"
+      },
+      {
+        "value": "+3",
+        "label": "Anos de Experiência"
+      }
     ]
   },
   "work": {
@@ -31,8 +40,18 @@
         "description": "Website completo para o maior torneio internacional de voleibol de praia de Portugal — criado para inscrições, patrocinadores e 600+ atletas em 50 equipas.",
         "long_description": "O Cascais Volley Cup é o maior torneio internacional de voleibol de praia de Portugal, reunindo 50 equipas e 600 atletas de 3 países todos os verões. O evento precisava de uma plataforma que gerisse as inscrições de equipas, comunicasse com patrocinadores e federações, e transmitisse a credibilidade de uma competição internacional.\n\nRedesenhei e reconstruí o site de raiz — com um fluxo de inscrição estruturado, visibilidade clara para patrocinadores, um portal de alojamento via parceiro O-Sports, e uma secção de programa e resultados preparada para a semana do torneio.\n\nO resultado é uma plataforma rápida e profissional que a organização partilha com confiança com jogadores, patrocinadores, imprensa e federações de voleibol.",
         "image": "/projects/cascais-volley.png",
-        "images": [],
-        "tags": ["Web Design", "Desenvolvimento", "Desporto"],
+        "images": [
+          "/projects/cascaisvolley/1.png",
+          "/projects/cascaisvolley/2.png",
+          "/projects/cascaisvolley/3.png",
+          "/projects/cascaisvolley/4.png",
+          "/projects/cascaisvolley/5.png"
+        ],
+        "tags": [
+          "Web Design",
+          "Desenvolvimento",
+          "Desporto"
+        ],
         "live": "https://www.cascaisvolley.com",
         "github": null
       },
@@ -42,8 +61,18 @@
         "description": "Website e sistema de reservas online para um bistro no Mercado de Carcavelos — pizzas no forno a lenha, cocktails artesanais e um fluxo de reservas que converte.",
         "long_description": "O Koya's Bistro é um café, bar e bistro no Mercado de Carcavelos, que serve comida caseira, tapas, pizzas no forno a lenha e cocktails artesanais das 9h à meia-noite.\n\nO proprietário precisava de um site que correspondesse ao ambiente quente e premium do espaço e tornasse fácil para os clientes encontrar horários, consultar a ementa e reservar mesa online.\n\nCriei um site bilingue (EN/PT) com uma secção de ementa completa em 6 categorias, um sistema de reservas de mesa integrado com seleção de data e hora, integração com o Uber Eats, e um design com tons âmbar e tipografia serifada que reflete a identidade do bistro.\n\nO resultado é um site que funciona tanto como ferramenta de descoberta como canal de reservas diretas.",
         "image": "/projects/koya-bistro.png",
-        "images": [],
-        "tags": ["Web Design", "Desenvolvimento", "Restauração"],
+        "images": [
+          "/projects/restaurant/1.png",
+          "/projects/restaurant/2.png",
+          "/projects/restaurant/3.png",
+          "/projects/restaurant/4.png",
+          "/projects/restaurant/5.png"
+        ],
+        "tags": [
+          "Web Design",
+          "Desenvolvimento",
+          "Restauração"
+        ],
         "live": "https://koya-bistro.vercel.app",
         "github": null
       },
@@ -53,9 +82,82 @@
         "description": "Website completo para uma clínica dentária multidisciplinar em Carcavelos — design focado na confiança com 20+ anos de experiência, 9 especialidades e 8.500+ pacientes.",
         "long_description": "A SorrisoPlus é uma clínica dentária multidisciplinar em Carcavelos que serve a região de Cascais. Com mais de 20 anos de experiência, 9 especialidades e 8.500+ pacientes, a clínica precisava de um site que transmitisse credibilidade e facilitasse as marcações de novos pacientes.\n\nCriei um site bilingue (PT/EN) estruturado em torno de elementos de confiança — credenciais da equipa, avaliações de pacientes (4,9 de classificação, 247 avaliações), seguradoras aceites e equipamentos avançados (CBCT, scanner intraoral, laser, CAD/CAM). Cada especialidade tem a sua secção dedicada para ajudar os pacientes a encontrar o serviço certo rapidamente.\n\nO site inclui um sistema de marcação com seleção de serviço, formulário de contacto, integração com WhatsApp, Google Maps e um acordeão de FAQ — tudo o que um novo paciente precisa para passar da descoberta à marcação.",
         "image": "/projects/sorriso-plus.png",
-        "images": [],
-        "tags": ["Web Design", "Desenvolvimento", "Saúde"],
+        "images": [
+          "/projects/clinic/1.png",
+          "/projects/clinic/2.png",
+          "/projects/clinic/3.png",
+          "/projects/clinic/4.png",
+          "/projects/clinic/5.png"
+        ],
+        "tags": [
+          "Web Design",
+          "Desenvolvimento",
+          "Saúde"
+        ],
         "live": "https://dentist-flax-psi.vercel.app",
+        "github": null
+      },
+      {
+        "slug": "aquafix",
+        "title": "AquaFix Canalizações",
+        "description": "Website de emergência para um serviço de canalização 24/7 em Cascais — garantia de resposta em 30 minutos, contacto via WhatsApp e 180+ avaliações em destaque.",
+        "long_description": "A AquaFix é um serviço profissional de canalização de emergência que opera em Cascais e arredores. Com 15+ anos de experiência e uma garantia de resposta em 30 minutos, precisavam de um site que convertesse visitantes em pânico em chamadas imediatas — sem enterrar o número de telefone.\n\nCriei um site mobile-first com botões fixos de WhatsApp e chamada, uma descrição clara dos 6 serviços, um mapa de área de serviço com tempos de resposta estimados, e uma secção de avaliações com 180+ classificações verificadas. O design em azul-marinho transmite profissionalismo sem perder a urgência.\n\nPromessa de orçamento gratuito, secção de FAQ e formulário de contacto complementam a experiência para pedidos não urgentes.",
+        "image": "/projects/aquafix.png",
+        "images": [
+          "/projects/plumber/1.png",
+          "/projects/plumber/2.png",
+          "/projects/plumber/3.png",
+          "/projects/plumber/4.png",
+          "/projects/plumber/5.png"
+        ],
+        "tags": [
+          "Web Design",
+          "Desenvolvimento",
+          "Serviços Locais"
+        ],
+        "live": "https://plumber-xi.vercel.app",
+        "github": null
+      },
+      {
+        "slug": "revicar",
+        "title": "Revicar Oficina Auto",
+        "description": "Website para uma oficina multimarca em Carcavelos — preços transparentes, 9 categorias de serviços e formulário de contacto para captar pedidos de reparação.",
+        "long_description": "A Revicar é uma oficina automóvel completa em Carcavelos, cobrindo mecânica, lataria, elétrica, AC, pneus e diagnóstico — para todas as marcas e modelos. A reputação deles foi construída com base na confiança e transparência de preços, e o site precisava de refletir isso.\n\nCriei um site bilingue (PT/EN) com um hero forte, uma secção de serviços detalhada em 9 categorias, testemunhos de clientes (4,9 de classificação, 120 avaliações) e um formulário de contacto que captura a informação do veículo e descrição do serviço logo de início — poupando tempo em ambos os lados.\n\nO design usa um overlay escuro com acentos vermelhos e tipografia Oswald, dando à marca um visual confiante e direto que combina com o ambiente da oficina.",
+        "image": "/projects/revicar.png",
+        "images": [
+          "/projects/mechanic/1.png",
+          "/projects/mechanic/2.png",
+          "/projects/mechanic/3.png",
+          "/projects/mechanic/4.png",
+          "/projects/mechanic/5.png"
+        ],
+        "tags": [
+          "Web Design",
+          "Desenvolvimento",
+          "Automóvel"
+        ],
+        "live": "https://mechanic-five.vercel.app",
+        "github": null
+      },
+      {
+        "slug": "bella-hair-salon",
+        "title": "Bella Cabeleireiro",
+        "description": "Website e sistema de marcações para um cabeleireiro em Carcavelos — 10+ anos de experiência, galeria de transformações e um fluxo de agendamento simples.",
+        "long_description": "A Bella é um cabeleireiro em Carcavelos especializado em coloração, madeixas, tratamentos e serviços de beleza. Com 10+ anos de experiência, 2.000+ clientes e parcerias com Kérastase, L'Oréal e Olaplex, precisavam de um site que mostrasse o trabalho e tornasse o agendamento fácil.\n\nCriei um site visualmente rico com uma galeria de transformações antes/depois, perfis individuais de cada profissional com especializações, menu de serviços completo com preços (€10–€120) e um sistema de marcações com dropdown de serviço.\n\nO resultado combina imagens de impacto com pontos de conversão claros — cada secção termina com um CTA de 'Marcar Agora', para que os visitantes saibam sempre o que fazer a seguir.",
+        "image": "/projects/hair-salon.png",
+        "images": [
+          "/projects/hairsalon/1.png",
+          "/projects/hairsalon/2.png",
+          "/projects/hairsalon/3.png",
+          "/projects/hairsalon/4.png",
+          "/projects/hairsalon/5.png"
+        ],
+        "tags": [
+          "Web Design",
+          "Desenvolvimento",
+          "Beleza"
+        ],
+        "live": "https://hair-salon-omega-taupe.vercel.app",
         "github": null
       }
     ]
@@ -141,10 +243,22 @@
     "title_line2": "MIM",
     "bio": "Sou João Guimarães — web designer, desenvolvedor e estrategista de marketing digital baseado em Portugal. Trabalho com negócios locais e marcas em crescimento que querem ter credibilidade online e atrair mais clientes.\n\nComecei a construir websites por curiosidade, depois transformei isso num ofício. Ao longo dos anos combinei sensibilidade de design com profundidade técnica e uma compreensão genuína do que faz as pessoas clicar, confiar e comprar.\n\nQuando não estou a trabalhar num projeto, estou normalmente a explorar novas ferramentas, a ler sobre estratégia de marca, ou a demorar demasiado a preparar um café.",
     "fun_facts": [
-      { "emoji": "☕", "text": "Obcecado com bom café." },
-      { "emoji": "📚", "text": "Atualmente a ler sobre psicologia de marca." },
-      { "emoji": "🌍", "text": "Disponível para projetos remotos em todo o mundo." },
-      { "emoji": "⚡", "text": "Entrega rápida sem sacrificar qualidade." }
+      {
+        "emoji": "☕",
+        "text": "Obcecado com bom café."
+      },
+      {
+        "emoji": "📚",
+        "text": "Atualmente a ler sobre psicologia de marca."
+      },
+      {
+        "emoji": "🌍",
+        "text": "Disponível para projetos remotos em todo o mundo."
+      },
+      {
+        "emoji": "⚡",
+        "text": "Entrega rápida sem sacrificar qualidade."
+      }
     ]
   },
   "contact": {

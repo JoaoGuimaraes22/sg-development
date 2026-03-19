@@ -25,7 +25,9 @@ app/
   [locale]/
     layout.tsx                generateMetadata (OG/Twitter/JSON-LD), ScrollProgress
     page.tsx                  sticky two-column layout (xl:mx-auto xl:max-w-350)
-    work/[slug]/page.tsx      project/case study detail page
+    work/[slug]/
+      page.tsx                project detail page (server component)
+      ScreenshotGallery.tsx   client component — infinite scroll gallery
     components/
       Navbar.tsx              fixed top, logo | NavDropdown | LanguageSwitcher
       NavDropdown.tsx         IntersectionObserver section tracking
@@ -44,6 +46,19 @@ public/
   profile.jpg                 profile photo
   hero-img.jpg                hero background (opacity-25, object-top)
   og-image.png                OG image 1200×630
+  projects/
+    cascais-volley.png        card thumbnail
+    koya-bistro.png
+    sorriso-plus.png
+    aquafix.png
+    revicar.png
+    hair-salon.png
+    cascaisvolley/1-5.png     mobile screenshot gallery (5 images per project)
+    restaurant/1-5.png
+    clinic/1-5.png
+    plumber/1-5.png
+    mechanic/1-5.png
+    hairsalon/1-5.png
 ```
 
 ## Layout (page.tsx)
@@ -82,6 +97,45 @@ public/
 
 Nav tracks: `home, work, services, about, contact`. Process is not tracked.
 
+## Work Detail Page (`work/[slug]/page.tsx`)
+
+Server component. Reads project from dictionary by slug. Renders:
+
+1. Back link → `/${locale}#work`
+2. Tag pills
+3. Title + description quote (border-l-4 indigo)
+4. `<ScreenshotGallery>` (if `project.images` has entries)
+5. `long_description` paragraphs (split on `\n\n`)
+6. Live / GitHub buttons
+
+`generateStaticParams` pre-generates all 12 routes (6 projects × 2 locales).
+
+## ScreenshotGallery (`work/[slug]/ScreenshotGallery.tsx`)
+
+Client component. Receives `images: string[]` + `title: string`.
+
+- Triples the array internally for seamless infinite scroll in both directions
+- On mount: measures exact DOM positions (`getBoundingClientRect`) to get `singleSetWidth` and `itemStride`; starts `scrollLeft` at copy 2
+- On scroll: resets `scrollLeft` by ±`singleSetWidth` when reaching edges (keeps user in copy 2)
+- **Mobile** (`w-full`): 1 image per view, snap scroll, dot indicators shown
+- **Desktop** (`md:w-[calc((100%_-_2rem)_/_3.3)]`): ~3.3 images visible, no dots
+- `snap-x snap-mandatory` + `snap-start` per item
+- Fade gradients on both edges always visible
+- Dot pills: `h-1.5 w-1.5 bg-zinc-300` inactive → `w-4 bg-indigo-600` active, `md:hidden`
+
+## Projects (6 live)
+
+| Slug | Title | Folder | Live |
+| --- | --- | --- | --- |
+| `cascais-volley` | Cascais Volley Cup | `cascaisvolley/` | cascaisvolley.com |
+| `koya-bistro` | Koya's Bistro | `restaurant/` | koya-bistro.vercel.app |
+| `sorriso-plus` | SorrisoPlus Dental Clinic | `clinic/` | dentist-flax-psi.vercel.app |
+| `aquafix` | AquaFix Plumbing | `plumber/` | plumber-xi.vercel.app |
+| `revicar` | Revicar Auto Repair | `mechanic/` | mechanic-five.vercel.app |
+| `bella-hair-salon` | Bella Hair Salon | `hairsalon/` | hair-salon-omega-taupe.vercel.app |
+
+Note: folder names under `public/projects/` do not always match slugs (e.g. `hairsalon/` → slug `bella-hair-salon`).
+
 ## Design Tone
 
 - **Accent**: `indigo-600` — trustworthy, professional, client-facing
@@ -107,10 +161,12 @@ Nav tracks: `home, work, services, about, contact`. Process is not tracked.
   "nav": { "home", "work", "services", "about", "contact" },
   "hero": {
     "name": "João Guimarães",
-    "card_bio": "Web Designer · Developer · Marketing Strategist · Available for Freelance",
+    "card_bio": "...",
     "title_line1": "WEB DESIGN",
     "title_line2": "& MARKETING",
     "tagline": "...",
+    "cta": "Start a Project",
+    "cta_secondary": "See My Work",
     "stats": [
       { "value": "+X", "label": "Websites Launched" },
       { "value": "+X", "label": "Happy Clients" },
@@ -125,12 +181,18 @@ Nav tracks: `home, work, services, about, contact`. Process is not tracked.
       {
         "slug": "project-slug",
         "title": "Project Title",
-        "description": "Short description",
-        "long_description": "...",
-        "image": null,
-        "images": [],
-        "tags": ["Web Design", "Branding", "SEO"],
-        "live": null,
+        "description": "Short description (shown on card + detail page quote)",
+        "long_description": "Multi-paragraph. Split on \\n\\n in component.",
+        "image": "/projects/thumbnail.png",
+        "images": [
+          "/projects/folder/1.png",
+          "/projects/folder/2.png",
+          "/projects/folder/3.png",
+          "/projects/folder/4.png",
+          "/projects/folder/5.png"
+        ],
+        "tags": ["Web Design", "Development", "Industry"],
+        "live": "https://...",
         "github": null
       }
     ]
@@ -191,7 +253,8 @@ Nav tracks: `home, work, services, about, contact`. Process is not tracked.
 
 - `bg-linear-to-br` not `bg-gradient-to-br`
 - `bg-white/3` not `bg-white/[0.03]`
-- `md:w-88`, `z-60`, `max-w-350` (no arbitrary values)
+- `md:w-88`, `z-60`, `max-w-350` (no arbitrary values for these)
+- Spaces in arbitrary values use underscores: `w-[calc((100%_-_2rem)_/_3.3)]`
 
 ## Known Gotchas
 
@@ -200,27 +263,5 @@ Nav tracks: `home, work, services, about, contact`. Process is not tracked.
 - `React.FormEvent` deprecated in React 19 — use `{ preventDefault(): void }`
 - ScrollProgress `z-60` (above Navbar `z-50`)
 - `app/page.tsx` must export a default or build fails
-
-## Bootstrap Commands
-
-```bash
-npx create-next-app@latest my-design-portfolio \
-  --typescript --tailwind --app --src-dir=no \
-  --import-alias "@/*"
-cd my-design-portfolio
-npm install framer-motion
-```
-
-Then copy over from the existing portfolio:
-
-- `proxy.ts`
-- `i18n-config.ts`
-- `get-dictionary.ts`
-- `app/[locale]/components/ScrollProgress.tsx`
-- `app/[locale]/components/LanguageSwitcher.tsx`
-- `app/[locale]/components/NavDropdown.tsx`
-- Update accent color `blue-500` → `violet-500` globally
-
-```
-
-```
+- `globals.css` has `.scrollbar-none` utility (hide scrollbars on scroll containers)
+- Project image folder names don't always match slugs — see Projects table above
