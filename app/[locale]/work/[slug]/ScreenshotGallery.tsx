@@ -53,7 +53,38 @@ export default function ScreenshotGallery({ images, title }: Props) {
     };
 
     el.addEventListener("scroll", onScroll, { passive: true });
-    return () => el.removeEventListener("scroll", onScroll);
+
+    // Mouse drag scroll (desktop equivalent of touch scroll)
+    let isDown = false;
+    let startX = 0;
+    let scrollStart = 0;
+
+    const onMouseDown = (e: MouseEvent) => {
+      isDown = true;
+      startX = e.pageX;
+      scrollStart = el.scrollLeft;
+      el.style.cursor = "grabbing";
+    };
+    const onMouseMove = (e: MouseEvent) => {
+      if (!isDown) return;
+      e.preventDefault();
+      el.scrollLeft = scrollStart - (e.pageX - startX);
+    };
+    const onMouseUp = () => {
+      isDown = false;
+      el.style.cursor = "";
+    };
+
+    el.addEventListener("mousedown", onMouseDown);
+    window.addEventListener("mousemove", onMouseMove);
+    window.addEventListener("mouseup", onMouseUp);
+
+    return () => {
+      el.removeEventListener("scroll", onScroll);
+      el.removeEventListener("mousedown", onMouseDown);
+      window.removeEventListener("mousemove", onMouseMove);
+      window.removeEventListener("mouseup", onMouseUp);
+    };
   }, [n]);
 
   const scroll = (dir: 1 | -1) => {
@@ -107,7 +138,7 @@ export default function ScreenshotGallery({ images, title }: Props) {
       {/* Scroll strip */}
       <div
         ref={scrollRef}
-        className="flex gap-3 overflow-x-auto snap-x snap-mandatory scrollbar-none pb-3"
+        className="flex gap-3 overflow-x-auto snap-x snap-mandatory scrollbar-none pb-3 cursor-grab"
       >
         {looped.map((src, i) => (
           <div
