@@ -1,9 +1,9 @@
 [
   {
-    "id": "424bc3c1-6633-4502-af10-c18963f4273e",
+    "id": "9c01e894-7a0f-4f2c-b555-1f7c9e05ab0c",
     "data": [
       {
-        "text": "How can I contact you",
+        "text": "Do you have reviews",
         "userDefined": false
       }
     ],
@@ -13,10 +13,10 @@
     "updated": 0
   },
   {
-    "id": "87c449c0-bba6-49ea-a699-98ca59f3a3ac",
+    "id": "75105434-35b1-45fd-98a0-7ca0bb42cc66",
     "data": [
       {
-        "text": "What is your email",
+        "text": "What do clients say",
         "userDefined": false
       }
     ],
@@ -26,10 +26,10 @@
     "updated": 0
   },
   {
-    "id": "d27da72a-b757-4736-abdb-76fbf5586b13",
+    "id": "9e39318d-b7ab-44e4-83f4-4e00f78138e9",
     "data": [
       {
-        "text": "How do I reach you",
+        "text": "Do you have testimonials",
         "userDefined": false
       }
     ],
@@ -39,10 +39,10 @@
     "updated": 0
   },
   {
-    "id": "a41ee1c3-6904-4d1a-bd4e-98bb941e3037",
+    "id": "59117ff5-ee68-4d87-b822-b390188241b1",
     "data": [
       {
-        "text": "How do I get in touch",
+        "text": "Can I see feedback from clients",
         "userDefined": false
       }
     ],
@@ -52,10 +52,10 @@
     "updated": 0
   },
   {
-    "id": "269e6217-ba60-4476-8e31-aece0d70781f",
+    "id": "2fcc44f3-c419-4223-a5dd-594e7469e1ff",
     "data": [
       {
-        "text": "I want to hire you",
+        "text": "Are there any recommendations",
         "userDefined": false
       }
     ],
@@ -65,10 +65,10 @@
     "updated": 0
   },
   {
-    "id": "c6986d2d-b8cc-423b-84b6-7f577c554f8b",
+    "id": "5d7809b1-8101-4e28-aa9e-d35d43d24e32",
     "data": [
       {
-        "text": "How do I start a project with you",
+        "text": "What do people think of your work",
         "userDefined": false
       }
     ],
@@ -78,10 +78,10 @@
     "updated": 0
   },
   {
-    "id": "0a9a496c-31e0-4a6c-a216-749012d80a3a",
+    "id": "4f6efc11-5e40-4291-83cb-e83bbe15154e",
     "data": [
       {
-        "text": "Send you a message",
+        "text": "Do you have references",
         "userDefined": false
       }
     ],

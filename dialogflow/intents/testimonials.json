@@ -1,6 +1,6 @@
 {
-  "id": "8893b8a9-18dd-4270-ac4c-eefad1776348",
-  "name": "tech-stack",
+  "id": "a6145096-cab0-417a-a2f6-2317d20c82d7",
+  "name": "testimonials",
   "auto": true,
   "contexts": [],
   "responses": [
@@ -16,7 +16,7 @@
           "textToSpeech": "",
           "lang": "en",
           "speech": [
-            "João builds with Next.js, React, TypeScript, and Tailwind CSS — deployed on Vercel. For design, he uses Figma. For marketing, he handles SEO, branding, and analytics."
+            "João has worked with several happy clients! Scroll up to the Reviews section on this page to read what they say. Real feedback from real businesses he's worked with."
           ],
           "condition": ""
         },
@@ -26,7 +26,7 @@
           "textToSpeech": "",
           "lang": "pt",
           "speech": [
-            "O João desenvolve com Next.js, React, TypeScript e Tailwind CSS — com deploy na Vercel. Para design usa Figma. Para marketing faz SEO, branding e análise de dados."
+            "O João já trabalhou com vários clientes satisfeitos! Faz scroll para cima até à secção de Reviews nesta página para ler o que dizem. Feedback real de empresas reais."
           ],
           "condition": ""
         }

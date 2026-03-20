@@ -1,6 +1,6 @@
 {
-  "id": "8893b8a9-18dd-4270-ac4c-eefad1776348",
-  "name": "tech-stack",
+  "id": "d3c7d4bf-8505-4edb-be43-c2b44319d5ce",
+  "name": "maintenance",
   "auto": true,
   "contexts": [],
   "responses": [
@@ -16,7 +16,7 @@
           "textToSpeech": "",
           "lang": "en",
           "speech": [
-            "João builds with Next.js, React, TypeScript, and Tailwind CSS — deployed on Vercel. For design, he uses Figma. For marketing, he handles SEO, branding, and analytics."
+            "Yes! João offers post-launch support and maintenance. This includes bug fixes, content updates, performance monitoring, and feature additions. Ask about ongoing retainer options when you get in touch!"
           ],
           "condition": ""
         },
@@ -26,7 +26,7 @@
           "textToSpeech": "",
           "lang": "pt",
           "speech": [
-            "O João desenvolve com Next.js, React, TypeScript e Tailwind CSS — com deploy na Vercel. Para design usa Figma. Para marketing faz SEO, branding e análise de dados."
+            "Sim! O João oferece suporte e manutenção após o lançamento. Inclui correção de bugs, atualizações de conteúdo, monitorização de desempenho e novas funcionalidades. Pergunta sobre opções de retainer quando entrares em contacto!"
           ],
           "condition": ""
         }

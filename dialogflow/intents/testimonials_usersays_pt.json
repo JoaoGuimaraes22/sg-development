@@ -1,9 +1,9 @@
 [
   {
-    "id": "39111dfb-df80-407c-acf1-f6ebe3fc268a",
+    "id": "e21e8d20-ef15-4135-a367-6ce7e7ddb32d",
     "data": [
       {
-        "text": "Onde é que estás",
+        "text": "Tens reviews",
         "userDefined": false
       }
     ],
@@ -13,10 +13,10 @@
     "updated": 0
   },
   {
-    "id": "2931f772-f05a-4fe7-972c-3bebb8ab0b89",
+    "id": "d331a907-6257-4563-b2df-ff4a61afa93c",
     "data": [
       {
-        "text": "De onde és",
+        "text": "O que dizem os clientes",
         "userDefined": false
       }
     ],
@@ -26,10 +26,10 @@
     "updated": 0
   },
   {
-    "id": "0cdba550-7a2b-44ed-a5c1-f4f55a08167d",
+    "id": "fb4c9fe1-ec33-43ce-8b99-43e4ff7f6624",
     "data": [
       {
-        "text": "Onde trabalhas",
+        "text": "Tens testemunhos",
         "userDefined": false
       }
     ],
@@ -39,10 +39,10 @@
     "updated": 0
   },
   {
-    "id": "5ce6153b-ce71-45eb-b740-0ca31f6de616",
+    "id": "4c9205cf-2469-4344-ba70-5b6085c64491",
     "data": [
       {
-        "text": "Estás em Portugal",
+        "text": "Posso ver feedback de clientes",
         "userDefined": false
       }
     ],
@@ -52,10 +52,23 @@
     "updated": 0
   },
   {
-    "id": "b867f7dc-c958-4b3a-a90c-9585f4122779",
+    "id": "16c6d14e-2cbb-49f4-9747-2576bf216eae",
     "data": [
       {
-        "text": "Trabalhas remotamente",
+        "text": "Tens referências",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "pt",
+    "updated": 0
+  },
+  {
+    "id": "b7d6dfd5-a209-49cb-868e-c0dc8d663372",
+    "data": [
+      {
+        "text": "O que acham do teu trabalho",
         "userDefined": false
       }
     ],

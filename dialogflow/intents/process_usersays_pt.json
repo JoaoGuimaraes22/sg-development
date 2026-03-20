@@ -1,93 +1,93 @@
 [
   {
-    "id": "424bc3c1-6633-4502-af10-c18963f4273e",
+    "id": "4a2e4d59-4c1a-4a9e-aaea-d20a7f7f448d",
     "data": [
       {
-        "text": "How can I contact you",
+        "text": "Como funciona trabalhar contigo",
         "userDefined": false
       }
     ],
     "isTemplate": false,
     "count": 0,
-    "lang": "en",
+    "lang": "pt",
     "updated": 0
   },
   {
-    "id": "87c449c0-bba6-49ea-a699-98ca59f3a3ac",
+    "id": "76741f21-780a-44b2-b989-8547f52db821",
     "data": [
       {
-        "text": "What is your email",
+        "text": "Qual é o teu processo",
         "userDefined": false
       }
     ],
     "isTemplate": false,
     "count": 0,
-    "lang": "en",
+    "lang": "pt",
     "updated": 0
   },
   {
-    "id": "d27da72a-b757-4736-abdb-76fbf5586b13",
+    "id": "eb704eea-b20d-48e0-89a8-a83f56b33056",
     "data": [
       {
-        "text": "How do I reach you",
+        "text": "Como trabalhas",
         "userDefined": false
       }
     ],
     "isTemplate": false,
     "count": 0,
-    "lang": "en",
+    "lang": "pt",
     "updated": 0
   },
   {
-    "id": "a41ee1c3-6904-4d1a-bd4e-98bb941e3037",
+    "id": "187fbdac-f1d2-48f6-8bf4-18e8a617b671",
     "data": [
       {
-        "text": "How do I get in touch",
+        "text": "Quais são as etapas para ter um site",
         "userDefined": false
       }
     ],
     "isTemplate": false,
     "count": 0,
-    "lang": "en",
+    "lang": "pt",
     "updated": 0
   },
   {
-    "id": "269e6217-ba60-4476-8e31-aece0d70781f",
+    "id": "2af974d2-beae-49ab-8d37-ad63a6aec6e9",
     "data": [
       {
-        "text": "I want to hire you",
+        "text": "Como começa um projeto",
         "userDefined": false
       }
     ],
     "isTemplate": false,
     "count": 0,
-    "lang": "en",
+    "lang": "pt",
     "updated": 0
   },
   {
-    "id": "c6986d2d-b8cc-423b-84b6-7f577c554f8b",
+    "id": "734d0d60-aab3-4911-be81-e62dd59b1c83",
     "data": [
       {
-        "text": "How do I start a project with you",
+        "text": "O que acontece depois de contactar",
         "userDefined": false
       }
     ],
     "isTemplate": false,
     "count": 0,
-    "lang": "en",
+    "lang": "pt",
     "updated": 0
   },
   {
-    "id": "0a9a496c-31e0-4a6c-a216-749012d80a3a",
+    "id": "d9bdf90c-6e2e-4c82-a596-3939424854c5",
     "data": [
       {
-        "text": "Send you a message",
+        "text": "Como abordas um projeto",
         "userDefined": false
       }
     ],
     "isTemplate": false,
     "count": 0,
-    "lang": "en",
+    "lang": "pt",
     "updated": 0
   }
 ]

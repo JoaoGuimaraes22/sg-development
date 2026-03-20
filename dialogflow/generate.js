@@ -118,10 +118,10 @@ const intents = [
     name: "pricing",
     messages: [
       msg("en", [
-        "Pricing depends on the project scope. A typical website starts from €800. João offers custom quotes — reach out via the contact form or email Jssgmrs22@gmail.com for a free consultation!",
+        "Pricing depends on the project scope. A typical website starts from €800. João offers custom quotes — reach out via the contact form or email jssgmrs22@gmail.com for a free consultation!",
       ]),
       msg("pt", [
-        "O preço depende do âmbito do projeto. Um website típico começa a partir de €800. O João faz orçamentos personalizados — usa o formulário de contacto ou envia email para Jssgmrs22@gmail.com!",
+        "O preço depende do âmbito do projeto. Um website típico começa a partir de €800. O João faz orçamentos personalizados — usa o formulário de contacto ou envia email para jssgmrs22@gmail.com!",
       ]),
     ],
     phrases_en: [
@@ -173,10 +173,10 @@ const intents = [
     name: "contact",
     messages: [
       msg("en", [
-        "You can reach João at Jssgmrs22@gmail.com, or use the contact form at the bottom of this page. He's also on LinkedIn and GitHub — links are in the sidebar!",
+        "You can reach João at jssgmrs22@gmail.com, or use the contact form at the bottom of this page. He's also on LinkedIn and GitHub — links are in the sidebar!",
       ]),
       msg("pt", [
-        "Podes contactar o João em Jssgmrs22@gmail.com, ou usar o formulário de contacto no fundo da página. Também está no LinkedIn e GitHub — os links estão na barra lateral!",
+        "Podes contactar o João em jssgmrs22@gmail.com, ou usar o formulário de contacto no fundo da página. Também está no LinkedIn e GitHub — os links estão na barra lateral!",
       ]),
     ],
     phrases_en: [
@@ -302,6 +302,119 @@ const intents = [
       "Onde trabalhas",
       "Estás em Portugal",
       "Trabalhas remotamente",
+    ],
+  },
+  {
+    name: "process",
+    messages: [
+      msg("en", [
+        "João follows a clear 4-step process: 1) Discovery — understanding your goals and audience. 2) Design — crafting the look and feel in Figma. 3) Development — building the site with Next.js. 4) Launch — deploying, testing, and handing over. You're involved at every stage!",
+      ]),
+      msg("pt", [
+        "O João segue um processo claro em 4 etapas: 1) Descoberta — perceber os teus objetivos. 2) Design — criar o visual no Figma. 3) Desenvolvimento — construir o site com Next.js. 4) Lançamento — deploy, testes e entrega. Estás envolvido em cada etapa!",
+      ]),
+    ],
+    phrases_en: [
+      "How does working with you work",
+      "What is your process",
+      "How do you work",
+      "Walk me through your workflow",
+      "What are the steps to get a website",
+      "How does a project start",
+      "What happens after I contact you",
+      "How do you approach a project",
+    ],
+    phrases_pt: [
+      "Como funciona trabalhar contigo",
+      "Qual é o teu processo",
+      "Como trabalhas",
+      "Quais são as etapas para ter um site",
+      "Como começa um projeto",
+      "O que acontece depois de contactar",
+      "Como abordas um projeto",
+    ],
+  },
+  {
+    name: "maintenance",
+    messages: [
+      msg("en", [
+        "Yes! João offers post-launch support and maintenance. This includes bug fixes, content updates, performance monitoring, and feature additions. Ask about ongoing retainer options when you get in touch!",
+      ]),
+      msg("pt", [
+        "Sim! O João oferece suporte e manutenção após o lançamento. Inclui correção de bugs, atualizações de conteúdo, monitorização de desempenho e novas funcionalidades. Pergunta sobre opções de retainer quando entrares em contacto!",
+      ]),
+    ],
+    phrases_en: [
+      "Do you offer support after launch",
+      "What happens after the website is done",
+      "Do you offer maintenance",
+      "Can you update my website later",
+      "Do you do ongoing work",
+      "What about after the project ends",
+      "Do you offer hosting",
+      "Can you maintain my site",
+    ],
+    phrases_pt: [
+      "Ofereces suporte após o lançamento",
+      "O que acontece depois do site estar pronto",
+      "Fazes manutenção",
+      "Podes atualizar o meu site mais tarde",
+      "Fazes trabalho contínuo",
+      "Tens serviço de manutenção",
+    ],
+  },
+  {
+    name: "testimonials",
+    messages: [
+      msg("en", [
+        "João has worked with several happy clients! Scroll up to the Reviews section on this page to read what they say. Real feedback from real businesses he's worked with.",
+      ]),
+      msg("pt", [
+        "O João já trabalhou com vários clientes satisfeitos! Faz scroll para cima até à secção de Reviews nesta página para ler o que dizem. Feedback real de empresas reais.",
+      ]),
+    ],
+    phrases_en: [
+      "Do you have reviews",
+      "What do clients say",
+      "Do you have testimonials",
+      "Can I see feedback from clients",
+      "Are there any recommendations",
+      "What do people think of your work",
+      "Do you have references",
+    ],
+    phrases_pt: [
+      "Tens reviews",
+      "O que dizem os clientes",
+      "Tens testemunhos",
+      "Posso ver feedback de clientes",
+      "Tens referências",
+      "O que acham do teu trabalho",
+    ],
+  },
+  {
+    name: "languages",
+    messages: [
+      msg("en", [
+        "João is fluent in both Portuguese and English, so he can work with clients in either language — no worries there!",
+      ]),
+      msg("pt", [
+        "O João fala português e inglês fluentemente, por isso consegue trabalhar com clientes em qualquer uma das línguas!",
+      ]),
+    ],
+    phrases_en: [
+      "Do you speak English",
+      "What languages do you speak",
+      "Can we communicate in English",
+      "Do you speak Portuguese",
+      "Can you work in English",
+      "Is language a barrier",
+    ],
+    phrases_pt: [
+      "Falas inglês",
+      "Que línguas falas",
+      "Podemos comunicar em português",
+      "Falas português",
+      "Trabalhas em inglês",
     ],
   },
   {

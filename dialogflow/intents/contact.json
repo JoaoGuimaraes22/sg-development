@@ -1,5 +1,5 @@
 {
-  "id": "5a054750-1800-4010-a184-d1cb7601ffbc",
+  "id": "ad5651fa-fde3-4dcb-80ed-e2810b03106f",
   "name": "contact",
   "auto": true,
   "contexts": [],
@@ -16,7 +16,7 @@
           "textToSpeech": "",
           "lang": "en",
           "speech": [
-            "You can reach João at Jssgmrs22@gmail.com, or use the contact form at the bottom of this page. He's also on LinkedIn and GitHub — links are in the sidebar!"
+            "You can reach João at jssgmrs22@gmail.com, or use the contact form at the bottom of this page. He's also on LinkedIn and GitHub — links are in the sidebar!"
           ],
           "condition": ""
         },
@@ -26,7 +26,7 @@
           "textToSpeech": "",
           "lang": "pt",
           "speech": [
-            "Podes contactar o João em Jssgmrs22@gmail.com, ou usar o formulário de contacto no fundo da página. Também está no LinkedIn e GitHub — os links estão na barra lateral!"
+            "Podes contactar o João em jssgmrs22@gmail.com, ou usar o formulário de contacto no fundo da página. Também está no LinkedIn e GitHub — os links estão na barra lateral!"
           ],
           "condition": ""
         }
