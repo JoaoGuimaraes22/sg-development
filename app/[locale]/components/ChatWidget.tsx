@@ -18,6 +18,7 @@ const strings = {
     greeting: "Hi! I'm João's assistant. Ask me anything about his work, services, or availability.",
     ariaLabel: "Open chat",
     bubble: "Ask me anything",
+    chips: ["What services do you offer?", "What's your pricing?", "Are you available?", "Show me your work"],
   },
   pt: {
     title: "Fala comigo",
@@ -26,6 +27,7 @@ const strings = {
     greeting: "Olá! Sou o assistente do João. Pergunta-me sobre o seu trabalho, serviços ou disponibilidade.",
     ariaLabel: "Abrir chat",
     bubble: "Pergunta-me algo",
+    chips: ["Que serviços ofereces?", "Qual é o teu preço?", "Estás disponível?", "Mostra o teu trabalho"],
   },
 };
 
@@ -36,6 +38,7 @@ export default function ChatWidget({ locale }: { locale: Locale }) {
   const [loading, setLoading] = useState(false);
   const [sessionId] = useState(() => crypto.randomUUID());
   const [showBubble, setShowBubble] = useState(true);
+  const [showChips, setShowChips] = useState(false);
   const greetedRef = useRef(false);
   const bottomRef = useRef<HTMLDivElement>(null);
   const s = strings[locale] ?? strings.en;
@@ -55,8 +58,30 @@ export default function ChatWidget({ locale }: { locale: Locale }) {
     if (open && !greetedRef.current) {
       greetedRef.current = true;
       setMessages([{ id: crypto.randomUUID(), role: "bot", text: s.greeting }]);
+      setShowChips(true);
     }
   }, [open, s.greeting]);
+
+  async function sendChip(text: string) {
+    setShowChips(false);
+    setMessages((prev) => [...prev, { id: crypto.randomUUID(), role: "user", text }]);
+    setLoading(true);
+    try {
+      const res = await fetch("/api/chat", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ message: text, sessionId, locale }),
+      });
+      const { reply } = await res.json();
+      setMessages((prev) => [...prev, { id: crypto.randomUUID(), role: "bot", text: reply }]);
+    } catch {
+      const fallback =
+        locale === "pt" ? "Erro de ligação. Tenta novamente." : "Connection error. Please try again.";
+      setMessages((prev) => [...prev, { id: crypto.randomUUID(), role: "bot", text: fallback }]);
+    } finally {
+      setLoading(false);
+    }
+  }
 
   useEffect(() => {
     bottomRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -67,6 +92,7 @@ export default function ChatWidget({ locale }: { locale: Locale }) {
     const text = input.trim();
     if (!text || loading) return;
 
+    setShowChips(false);
     setMessages((prev) => [...prev, { id: crypto.randomUUID(), role: "user", text }]);
     setInput("");
     setLoading(true);
@@ -146,6 +172,21 @@ export default function ChatWidget({ locale }: { locale: Locale }) {
               <div ref={bottomRef} />
             </div>
 
+            {/* Quick reply chips */}
+            {showChips && (
+              <div className="flex flex-wrap gap-2 px-4 pb-3">
+                {s.chips.map((chip) => (
+                  <button
+                    key={chip}
+                    onClick={() => sendChip(chip)}
+                    className="rounded-full border border-zinc-200 px-3 py-1.5 text-xs text-zinc-600 hover:border-indigo-400 hover:text-indigo-600 transition-colors whitespace-nowrap"
+                  >
+                    {chip}
+                  </button>
+                ))}
+              </div>
+            )}
+
             {/* Input */}
             <form
               onSubmit={handleSend}
@@ -209,8 +250,14 @@ export default function ChatWidget({ locale }: { locale: Locale }) {
       <button
         onClick={() => { setOpen((v) => !v); if (showBubble) dismissBubble(); }}
         aria-label={s.ariaLabel}
-        className="flex size-12 items-center justify-center rounded-full bg-indigo-600 text-white shadow-md hover:bg-indigo-700 transition-all"
+        className="relative flex size-12 items-center justify-center rounded-full bg-indigo-600 text-white shadow-md hover:bg-indigo-700 transition-all"
       >
+        {showBubble && !open && (
+          <span className="absolute -top-0.5 -right-0.5 flex size-3">
+            <span className="absolute inline-flex size-full animate-ping rounded-full bg-indigo-400 opacity-75" />
+            <span className="relative inline-flex size-3 rounded-full bg-indigo-500" />
+          </span>
+        )}
         <AnimatePresence mode="wait" initial={false}>
           {open ? (
             <motion.svg

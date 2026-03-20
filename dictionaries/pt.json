@@ -167,6 +167,7 @@
   "services": {
     "title_line1": "O QUE",
     "title_line2": "OFEREÇO",
+    "stack_label": "Tecnologias",
     "items": [
       {
         "icon": "🖥️",

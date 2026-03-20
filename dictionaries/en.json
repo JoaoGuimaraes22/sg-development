@@ -167,6 +167,7 @@
   "services": {
     "title_line1": "WHAT I",
     "title_line2": "OFFER",
+    "stack_label": "Tech Stack",
     "items": [
       {
         "icon": "🖥️",

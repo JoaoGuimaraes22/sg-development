@@ -12,12 +12,49 @@ interface ServiceItem {
 interface ServicesDict {
   title_line1: string;
   title_line2: string;
+  stack_label: string;
   items: ServiceItem[];
 }
 
 interface ServicesProps {
   services: ServicesDict;
 }
+
+const STACK = [
+  {
+    category: "Frontend",
+    color: "indigo",
+    items: ["React.js", "Next.js", "JavaScript", "Redux.js", "HTML5", "CSS", "SASS"],
+  },
+  {
+    category: "Backend",
+    color: "blue",
+    items: ["Node.js", "Express.js", "C#", "ASP.NET", ".NET Framework"],
+  },
+  {
+    category: "Database",
+    color: "emerald",
+    items: ["SQL", "MySQL", "MongoDB"],
+  },
+  {
+    category: "Cloud & DevOps",
+    color: "amber",
+    items: ["Azure", "Docker", "Kubernetes", "DigitalOcean", "Bash"],
+  },
+  {
+    category: "AI & Tools",
+    color: "violet",
+    items: ["NLP", "Dialogflow", "Bot Framework", "AR Foundation", "Unity", "VS Code"],
+  },
+];
+
+const PILL_COLORS: Record<string, string> = {
+  indigo: "bg-indigo-50 text-indigo-700",
+  blue: "bg-blue-50 text-blue-700",
+  emerald: "bg-emerald-50 text-emerald-700",
+  amber: "bg-amber-50 text-amber-700",
+  violet: "bg-violet-50 text-violet-700",
+};
 
 const cardClass =
   "rounded-2xl border border-zinc-100 bg-white shadow-sm hover:shadow-md transition-shadow";
@@ -135,6 +172,35 @@ export default function Services({ services }: ServicesProps) {
           </motion.div>
         ))}
       </div>
+
+      {/* Tech stack strip */}
+      <motion.div
+        className="mt-10 pt-8 border-t border-zinc-100"
+        initial={{ opacity: 0, y: 20 }}
+        animate={inView ? { opacity: 1, y: 0 } : {}}
+        transition={{ duration: 0.6, delay: 0.6, ease: [0.16, 1, 0.3, 1] as const }}
+      >
+        <p className="mb-6 text-xs font-semibold uppercase tracking-widest text-zinc-400">
+          {services.stack_label}
+        </p>
+        <div className="flex flex-col gap-4">
+          {STACK.map(({ category, color, items }) => (
+            <div key={category} className="flex flex-wrap items-center gap-2">
+              <span className="mr-2 w-28 shrink-0 text-xs font-medium text-zinc-400">
+                {category}
+              </span>
+              {items.map((item) => (
+                <span
+                  key={item}
+                  className={`rounded-full px-3 py-1 text-xs font-medium ${PILL_COLORS[color]}`}
+                >
+                  {item}
+                </span>
+              ))}
+            </div>
+          ))}
+        </div>
+      </motion.div>
     </section>
   );
 }
