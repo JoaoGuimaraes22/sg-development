@@ -209,22 +209,26 @@
       {
         "icon": "🖥️",
         "title": "Web Design & Desenvolvimento",
-        "description": "Websites rápidos e responsivos construídos com tecnologia moderna — desenhados para converter e construídos para durar."
+        "description": "Websites rápidos e responsivos construídos com tecnologia moderna — desenhados para converter e construídos para durar.",
+        "details": ["Design visual personalizado para a sua marca", "Mobile-first e totalmente responsivo", "Estrutura de página otimizada para SEO", "Carregamento rápido & Core Web Vitals", "Opções de CMS ou site estático", "Deploy, analytics e suporte pós-lançamento"]
       },
       {
         "icon": "🎨",
         "title": "Branding & Identidade Visual",
-        "description": "Logótipo, sistemas de cores e guias de marca que dão ao seu negócio uma aparência coerente e profissional."
+        "description": "Logótipo, sistemas de cores e guias de marca que dão ao seu negócio uma aparência coerente e profissional.",
+        "details": ["Logótipo principal + variações", "Sistema de cores e tipografia", "Documento de brand guidelines", "Kit de redes sociais e assets de perfil", "Design de cartão de visita e papelaria"]
       },
       {
         "icon": "📈",
         "title": "SEO & Marketing Digital",
-        "description": "Estratégia de keywords, otimização on-page e planeamento de conteúdo que impulsiona crescimento orgânico real."
+        "description": "Estratégia de keywords, otimização on-page e planeamento de conteúdo que impulsiona crescimento orgânico real.",
+        "details": ["Pesquisa de keywords e análise da concorrência", "Auditoria de SEO on-page e técnico", "Configuração de Google Analytics e Search Console", "Estratégia de conteúdo e planeamento de blog", "Relatório mensal de desempenho"]
       },
       {
         "icon": "📱",
         "title": "Estratégia para Redes Sociais",
-        "description": "Frameworks de conteúdo, estratégias de publicação e templates visuais que fazem crescer a sua audiência de forma consistente."
+        "description": "Frameworks de conteúdo, estratégias de publicação e templates visuais que fazem crescer a sua audiência de forma consistente.",
+        "details": ["Calendário editorial e plano de publicações", "Sistema de templates visuais por plataforma", "Frameworks de escrita de legendas", "Estratégia de hashtags e comunidade", "Revisão e ajustes mensais com base em analytics"]
       }
     ]
   },

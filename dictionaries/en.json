@@ -209,22 +209,26 @@
       {
         "icon": "🖥️",
         "title": "Web Design & Development",
-        "description": "Fast, responsive websites built with modern tech — designed to convert and built to last."
+        "description": "Fast, responsive websites built with modern tech — designed to convert and built to last.",
+        "details": ["Custom, brand-matched visual design", "Mobile-first & fully responsive", "SEO-optimized page structure", "Fast load times & Core Web Vitals", "CMS or static site options", "Deployment, analytics & post-launch support"]
       },
       {
         "icon": "🎨",
         "title": "Branding & Visual Identity",
-        "description": "Logo, color systems, and brand guidelines that give your business a coherent, professional look."
+        "description": "Logo, color systems, and brand guidelines that give your business a coherent, professional look.",
+        "details": ["Primary logo + variations", "Color palette & typography system", "Brand guidelines document", "Social media kit & profile assets", "Business card & stationery design"]
       },
       {
         "icon": "📈",
         "title": "SEO & Digital Marketing",
-        "description": "Keyword strategy, on-page optimization, and content planning that drives real organic growth."
+        "description": "Keyword strategy, on-page optimization, and content planning that drives real organic growth.",
+        "details": ["Keyword research & competitor analysis", "On-page & technical SEO audit", "Google Analytics & Search Console setup", "Content strategy & blog planning", "Monthly performance reporting"]
       },
       {
         "icon": "📱",
         "title": "Social Media Strategy",
-        "description": "Content frameworks, posting strategies, and visual templates that grow your audience consistently."
+        "description": "Content frameworks, posting strategies, and visual templates that grow your audience consistently.",
+        "details": ["Content calendar & scheduling plan", "Visual template system per platform", "Caption writing frameworks", "Hashtag & community strategy", "Monthly analytics review & adjustments"]
       }
     ]
   },
