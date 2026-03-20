@@ -152,7 +152,7 @@ export default function Testimonials({ testimonials }: TestimonialsProps) {
 
       {/* Scrolling columns container */}
       <motion.div
-        className="relative h-[600px] md:h-[700px] overflow-hidden"
+        className="relative h-150 md:h-175 overflow-hidden"
         initial={{ opacity: 0 }}
         animate={inView ? { opacity: 1 } : {}}
         transition={{
