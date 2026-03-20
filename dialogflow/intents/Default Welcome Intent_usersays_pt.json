@@ -1,0 +1,67 @@
+[
+  {
+    "id": "f50920b8-b5ca-4dfb-8763-6d15f1008b81",
+    "data": [
+      {
+        "text": "Olá",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "pt",
+    "updated": 0
+  },
+  {
+    "id": "ce9bbbe5-6417-490f-a514-d45417fdb655",
+    "data": [
+      {
+        "text": "Bom dia",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "pt",
+    "updated": 0
+  },
+  {
+    "id": "6067ab75-3e19-46ac-b9a8-f66906bb8d05",
+    "data": [
+      {
+        "text": "Oi",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "pt",
+    "updated": 0
+  },
+  {
+    "id": "e0cf462c-34c1-47fd-8715-f3846a9c9a48",
+    "data": [
+      {
+        "text": "Olá, bom dia",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "pt",
+    "updated": 0
+  },
+  {
+    "id": "b1ea4800-5653-40bc-96c2-d90f3a21bc82",
+    "data": [
+      {
+        "text": "Boa tarde",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "pt",
+    "updated": 0
+  }
+]

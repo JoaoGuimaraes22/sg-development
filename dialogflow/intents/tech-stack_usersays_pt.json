@@ -1,0 +1,80 @@
+[
+  {
+    "id": "a6054e8a-4b04-4106-8bf4-eeea5418f0d3",
+    "data": [
+      {
+        "text": "Que tecnologias usas",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "pt",
+    "updated": 0
+  },
+  {
+    "id": "038b8471-37bb-4305-9211-6d6c0cb19b24",
+    "data": [
+      {
+        "text": "Qual é o teu stack",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "pt",
+    "updated": 0
+  },
+  {
+    "id": "7d925832-2acf-4855-ab14-fba9ec23ec53",
+    "data": [
+      {
+        "text": "Em que linguagens programas",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "pt",
+    "updated": 0
+  },
+  {
+    "id": "05bbf523-0033-48f3-ab07-810e360297f3",
+    "data": [
+      {
+        "text": "Usas React",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "pt",
+    "updated": 0
+  },
+  {
+    "id": "9a25f3ce-80d1-475e-a1c9-8043512d8375",
+    "data": [
+      {
+        "text": "Que ferramentas usas",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "pt",
+    "updated": 0
+  },
+  {
+    "id": "c3bf93ea-790a-4c1c-8d8b-4683a4b985a7",
+    "data": [
+      {
+        "text": "Usas WordPress",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "pt",
+    "updated": 0
+  }
+]

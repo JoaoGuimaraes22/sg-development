@@ -1,0 +1,119 @@
+[
+  {
+    "id": "6bd67c12-6f11-4474-97ed-f11a176b2ad6",
+    "data": [
+      {
+        "text": "What services do you offer",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "8fd37448-ef0b-477c-8c0a-7eea954f6a6d",
+    "data": [
+      {
+        "text": "What do you do",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "3bfb837d-ca6a-435a-ab11-75bcaa3b2990",
+    "data": [
+      {
+        "text": "What can you help me with",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "630d3c30-4fb5-4cb7-a17d-6bd7759b1463",
+    "data": [
+      {
+        "text": "Tell me about your services",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "b35692b8-0d23-4006-820a-327e378f8aac",
+    "data": [
+      {
+        "text": "What kind of work do you do",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "c07ccadd-e392-4a3e-a301-f8bd8ddc44bc",
+    "data": [
+      {
+        "text": "Do you do web design",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "01c3690f-462c-4d5d-be45-d65e7b7fbd80",
+    "data": [
+      {
+        "text": "Do you do marketing",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "ac3ddf3b-d923-483a-8146-9493f562bbcf",
+    "data": [
+      {
+        "text": "Can you build a website for me",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "5c848646-7271-40c1-b667-1d0aaafc08c2",
+    "data": [
+      {
+        "text": "What do you specialize in",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  }
+]

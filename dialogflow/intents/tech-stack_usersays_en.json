@@ -1,0 +1,93 @@
+[
+  {
+    "id": "e38b67e2-e2f1-4d81-b727-fa053969e23a",
+    "data": [
+      {
+        "text": "What technologies do you use",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "e120d469-34f9-45e1-b9ad-67be2c14ac5e",
+    "data": [
+      {
+        "text": "What is your tech stack",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "6db69b92-2abd-465d-8e1b-7902bf6d7a56",
+    "data": [
+      {
+        "text": "What do you code in",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "9bac2c6a-2303-49f2-aa86-8dc093de3e9e",
+    "data": [
+      {
+        "text": "Do you use React",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "8cdaa5b4-f13a-499c-9868-04fd9f5627ea",
+    "data": [
+      {
+        "text": "What tools do you use",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "098f925d-690b-4e76-a03b-c3bf6e0dab7c",
+    "data": [
+      {
+        "text": "Do you use WordPress",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "76fa3ad1-1cc2-41dc-b8aa-7a156d05f79c",
+    "data": [
+      {
+        "text": "What programming languages do you know",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  }
+]

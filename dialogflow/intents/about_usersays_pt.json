@@ -1,0 +1,67 @@
+[
+  {
+    "id": "b8a8ce05-c6f9-46ad-afce-f8069512a1a8",
+    "data": [
+      {
+        "text": "Quem és tu",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "pt",
+    "updated": 0
+  },
+  {
+    "id": "f666a82e-1f8f-4536-b413-ce6a1b72a661",
+    "data": [
+      {
+        "text": "Fala-me sobre ti",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "pt",
+    "updated": 0
+  },
+  {
+    "id": "a0288222-bbfe-4a1b-adc7-6b5e616dfd01",
+    "data": [
+      {
+        "text": "Quem é o João",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "pt",
+    "updated": 0
+  },
+  {
+    "id": "67da70a5-2fbb-4b9d-82d8-50c8f3481ac4",
+    "data": [
+      {
+        "text": "Qual é a tua experiência",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "pt",
+    "updated": 0
+  },
+  {
+    "id": "dba09317-bf99-4f7a-b058-082ec1b72c5c",
+    "data": [
+      {
+        "text": "Quantos anos de experiência tens",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "pt",
+    "updated": 0
+  }
+]

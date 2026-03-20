@@ -1,0 +1,47 @@
+{
+  "id": "a9ab5329-c86f-4511-a587-82bd2420cd3f",
+  "name": "Default Fallback Intent",
+  "auto": true,
+  "contexts": [],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "input.unknown",
+      "affectedContexts": [],
+      "parameters": [],
+      "messages": [
+        {
+          "type": "0",
+          "title": "",
+          "textToSpeech": "",
+          "lang": "en",
+          "speech": [
+            "Sorry, I didn't quite catch that. Try asking about services, pricing, projects, or how to get in touch!",
+            "I'm not sure I understood. Ask me about João's services, timeline, or portfolio!"
+          ],
+          "condition": ""
+        },
+        {
+          "type": "0",
+          "title": "",
+          "textToSpeech": "",
+          "lang": "pt",
+          "speech": [
+            "Desculpe, não percebi muito bem. Tenta perguntar sobre serviços, preços, projetos ou contacto!",
+            "Não entendi bem. Podes perguntar sobre serviços, prazo ou portfólio!"
+          ],
+          "condition": ""
+        }
+      ],
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": true,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

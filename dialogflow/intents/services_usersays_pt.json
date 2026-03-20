@@ -1,0 +1,80 @@
+[
+  {
+    "id": "5f7c69a7-fb9f-4082-9ed8-15615c3e79d5",
+    "data": [
+      {
+        "text": "Que serviços ofereces",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "pt",
+    "updated": 0
+  },
+  {
+    "id": "b3b59408-b787-4ce1-b60d-32891bd0a916",
+    "data": [
+      {
+        "text": "O que fazes",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "pt",
+    "updated": 0
+  },
+  {
+    "id": "a14ff5b0-91a2-439c-9b24-d1c2b5fa9952",
+    "data": [
+      {
+        "text": "Em que te especializas",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "pt",
+    "updated": 0
+  },
+  {
+    "id": "02e4de51-3212-48b3-8005-8685a0e0e0ad",
+    "data": [
+      {
+        "text": "Fazes web design",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "pt",
+    "updated": 0
+  },
+  {
+    "id": "7fe7d7c4-a512-4cfb-8576-a34f0eed1fac",
+    "data": [
+      {
+        "text": "Fazes marketing digital",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "pt",
+    "updated": 0
+  },
+  {
+    "id": "8a1e1706-e690-4cc7-9daa-113d6c5a923d",
+    "data": [
+      {
+        "text": "Podes criar um site para mim",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "pt",
+    "updated": 0
+  }
+]
