@@ -12,11 +12,11 @@ interface ProfileSidebarProps {
   mobile?: boolean;
 }
 
-export default function ProfileSidebar({ hero, mobile }: ProfileSidebarProps) {
+export default function ProfileSidebar({ hero, locale, mobile }: ProfileSidebarProps) {
   if (mobile) {
     return (
       <div className="flex min-h-screen flex-col items-center justify-center gap-6 px-6 py-16 text-center">
-        <div className="relative h-28 w-28  overflow-hidden rounded-full border-2 border-zinc-100 shadow-md">
+        <div className="relative h-28 w-28 overflow-hidden rounded-full ring-2 ring-indigo-500 ring-offset-2 shadow-md">
           <Image
             src="/profile.jpg"
             alt={hero.name}
@@ -31,6 +31,8 @@ export default function ProfileSidebar({ hero, mobile }: ProfileSidebarProps) {
             {hero.card_bio}
           </p>
         </div>
+        <LocationLine />
+        <CtaButton locale={locale} />
         <div className="flex gap-4">
           <SocialLinks />
         </div>
@@ -40,8 +42,8 @@ export default function ProfileSidebar({ hero, mobile }: ProfileSidebarProps) {
   }
 
   return (
-    <div className="flex h-full flex-col items-center justify-center gap-8 p-8 border-r border-zinc-100">
-      <div className="relative h-32 w-32 overflow-hidden rounded-full border-2 border-zinc-100 shadow-md">
+    <div className="flex h-full flex-col items-center justify-center gap-6 p-8 border-r border-zinc-100">
+      <div className="relative h-32 w-32 overflow-hidden rounded-full ring-2 ring-indigo-500 ring-offset-2 shadow-md">
         <Image
           src="/profile.jpg"
           alt={hero.name}
@@ -53,12 +55,16 @@ export default function ProfileSidebar({ hero, mobile }: ProfileSidebarProps) {
 
       <div className="text-center">
         <h2 className="text-base font-bold text-zinc-900">{hero.name}</h2>
-        <p className="mt-2 text-xs leading-relaxed text-zinc-500">
+        <p className="mt-1.5 text-xs leading-relaxed text-zinc-500">
           {hero.card_bio}
         </p>
       </div>
 
-      <div className="h-px w-16 bg-zinc-100" />
+      <LocationLine />
+
+      <div className="h-px w-16 bg-linear-to-r from-indigo-200 via-indigo-400 to-indigo-200" />
+
+      <CtaButton locale={locale} />
 
       <div className="flex gap-5">
         <SocialLinks />
@@ -68,6 +74,40 @@ export default function ProfileSidebar({ hero, mobile }: ProfileSidebarProps) {
         <AvailableBadge />
       </div>
     </div>
+  );
+}
+
+function LocationLine() {
+  return (
+    <div className="flex items-center gap-1.5 text-xs text-zinc-400">
+      <svg
+        width="12"
+        height="12"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        className="shrink-0 text-indigo-400"
+        aria-hidden="true"
+      >
+        <path d="M20 10c0 6-8 13-8 13s-8-7-8-13a8 8 0 0 1 16 0Z" />
+        <circle cx="12" cy="10" r="3" />
+      </svg>
+      <span>Cascais, Portugal · GMT+1</span>
+    </div>
+  );
+}
+
+function CtaButton({ locale }: { locale: Locale }) {
+  return (
+    <a
+      href={`/${locale}#contact`}
+      className="inline-flex items-center justify-center rounded-lg bg-indigo-600 px-4 py-2 text-xs font-semibold text-white shadow-sm transition-colors hover:bg-indigo-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+    >
+      Start a Project
+    </a>
   );
 }
 
@@ -87,7 +127,7 @@ function SocialLinks() {
         href="https://github.com/JoaoGuimaraes22"
         target="_blank"
         rel="noopener noreferrer"
-        className="text-zinc-400 transition-colors hover:text-zinc-900"
+        className="text-[#24292e] transition-opacity hover:opacity-70"
         aria-label="GitHub"
       >
         <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
@@ -98,7 +138,7 @@ function SocialLinks() {
         href="https://www.linkedin.com/in/joão-sebastião-guimarães-4abaa7197/"
         target="_blank"
         rel="noopener noreferrer"
-        className="text-zinc-400 transition-colors hover:text-zinc-900"
+        className="text-[#0077B5] transition-opacity hover:opacity-70"
         aria-label="LinkedIn"
       >
         <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
@@ -107,7 +147,7 @@ function SocialLinks() {
       </a>
       <a
         href="mailto:Jssgmrs22@gmail.com"
-        className="text-zinc-400 transition-colors hover:text-zinc-900"
+        className="text-[#EA4335] transition-opacity hover:opacity-70"
         aria-label="Email"
       >
         <svg
