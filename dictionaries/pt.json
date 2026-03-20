@@ -143,6 +143,7 @@
   "testimonials": {
     "title_line1": "O QUE OS CLIENTES",
     "title_line2": "DIZEM",
+    "subtitle": "Feedback real de negócios locais em todo Portugal.",
     "items": [
       {
         "quote": "O João redesenhou o nosso site de torneio do zero. As inscrições online aumentaram significativamente e finalmente temos uma plataforma da qual nos orgulhamos de mostrar a patrocinadores e federações.",
@@ -160,6 +161,42 @@
         "quote": "Profissional, rápido e genuinamente investido nos resultados. Não construiu apenas um site — ajudou-nos a pensar como atrair clientes online.",
         "name": "Ricardo Santos",
         "role": "Diretor, Clínica Santos & Associados",
+        "avatar": null
+      },
+      {
+        "quote": "Passámos de zero presença online para aparecer na primeira página do Google na nossa área. O site ficou ótimo e começou a gerar chamadas em semanas.",
+        "name": "Carlos Ferreira",
+        "role": "Proprietário, AquaFix Canalizações",
+        "avatar": null
+      },
+      {
+        "quote": "O sistema de marcações que o João criou mudou completamente como gerimos as marcações. Os clientes marcam online sem ligar — poupou-nos horas todas as semanas.",
+        "name": "Ana Lopes",
+        "role": "Gestora, Bella Cabeleireiro",
+        "avatar": null
+      },
+      {
+        "quote": "Estava cético em investir num site, mas o João explicou porque era importante e entregou exatamente o que prometeu. A nossa taxa de contactos aumentou visivelmente.",
+        "name": "Tiago Mendes",
+        "role": "Proprietário, Revicar Oficina Auto",
+        "avatar": null
+      },
+      {
+        "quote": "O portal de novos pacientes e o formulário de marcação fizeram uma diferença real. Novos pacientes dizem que nos encontraram online e o site deu-lhes confiança para marcar de imediato.",
+        "name": "Dra. Sofia Nunes",
+        "role": "Diretora Clínica, SorrisoPlus Dental",
+        "avatar": null
+      },
+      {
+        "quote": "Trabalhar com o João foi surpreendentemente fácil. Manteve-nos informados em cada fase, cumpriu todos os prazos, e o resultado final superou o que tínhamos imaginado.",
+        "name": "Bruno Carvalho",
+        "role": "Proprietário, Koya's Bistro",
+        "avatar": null
+      },
+      {
+        "quote": "Os nossos clientes agora elogiam-nos pelo site regularmente. Tem um aspeto premium, carrega rapidamente e, mais importante, traz novos clientes todos os meses.",
+        "name": "Inês Rodrigues",
+        "role": "Proprietária, Studio Bloom",
         "avatar": null
       }
     ]

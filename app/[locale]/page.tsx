@@ -25,7 +25,7 @@ export default async function LocalePage({
       {/* Sidebar layout — starts after hero */}
       <div className="md:flex xl:mx-auto xl:max-w-350">
         {/* Desktop sidebar */}
-        <aside className="hidden md:flex md:sticky md:top-14 md:h-[calc(100vh-3.5rem)] md:w-88 md:shrink-0 md:flex-col">
+        <aside className="hidden md:flex md:sticky md:top-14 md:h-[calc(100vh-3.5rem)] md:w-88 md:shrink-0 md:flex-col md:justify-center md:p-4">
           <ProfileSidebar hero={dict.hero} locale={locale} />
         </aside>
 

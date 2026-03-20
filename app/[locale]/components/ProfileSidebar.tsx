@@ -44,7 +44,7 @@ export default function ProfileSidebar({ hero, locale, mobile }: ProfileSidebarP
   }
 
   return (
-    <div className="flex h-full flex-col items-center justify-center gap-6 p-8 border-r border-zinc-100">
+    <div className="flex w-full flex-col items-center gap-6 rounded-2xl border border-zinc-100 bg-white p-8 shadow-sm">
       <div className="relative h-32 w-32 overflow-hidden rounded-full ring-2 ring-indigo-500 ring-offset-2 shadow-md">
         <Image
           src="/profile.jpg"
@@ -73,9 +73,7 @@ export default function ProfileSidebar({ hero, locale, mobile }: ProfileSidebarP
         <SocialLinks />
       </div>
 
-      <div className="mt-auto">
-        <AvailableBadge />
-      </div>
+      <AvailableBadge />
     </div>
   );
 }

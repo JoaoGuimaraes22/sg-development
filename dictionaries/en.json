@@ -143,6 +143,7 @@
   "testimonials": {
     "title_line1": "WHAT CLIENTS",
     "title_line2": "SAY",
+    "subtitle": "Real feedback from local businesses across Portugal.",
     "items": [
       {
         "quote": "João redesigned our tournament website from scratch. Online registrations increased significantly and we finally have a platform we're proud to show sponsors and federations.",
@@ -160,6 +161,42 @@
         "quote": "Professional, fast, and genuinely invested in the results. He didn't just build a site — he helped us think through how to actually attract clients online.",
         "name": "Ricardo Santos",
         "role": "Director, Clínica Santos & Associados",
+        "avatar": null
+      },
+      {
+        "quote": "We went from zero online presence to ranking on the first page of Google in our area. The site looked great and actually started generating calls within weeks.",
+        "name": "Carlos Ferreira",
+        "role": "Owner, AquaFix Plumbing",
+        "avatar": null
+      },
+      {
+        "quote": "The booking system João built changed how we manage appointments completely. Clients book online now without calling — it's saved us hours every single week.",
+        "name": "Ana Lopes",
+        "role": "Manager, Bella Hair Salon",
+        "avatar": null
+      },
+      {
+        "quote": "I was skeptical about spending money on a website, but João explained why it mattered and delivered exactly what he promised. Our inquiry rate has gone up noticeably.",
+        "name": "Tiago Mendes",
+        "role": "Owner, Revicar Auto Repair",
+        "avatar": null
+      },
+      {
+        "quote": "The new patient portal and appointment form have made a real difference. New patients tell us they found us online and the site gave them confidence to book straight away.",
+        "name": "Dr. Sofia Nunes",
+        "role": "Clinical Director, SorrisoPlus Dental",
+        "avatar": null
+      },
+      {
+        "quote": "Working with João was refreshingly easy. He kept us in the loop at every stage, hit every deadline, and the final result exceeded what we imagined.",
+        "name": "Bruno Carvalho",
+        "role": "Owner, Koya's Bistro",
+        "avatar": null
+      },
+      {
+        "quote": "Our clients now compliment us on the website regularly. It looks high-end, loads quickly, and most importantly it actually brings in new customers every month.",
+        "name": "Inês Rodrigues",
+        "role": "Owner, Studio Bloom",
         "avatar": null
       }
     ]

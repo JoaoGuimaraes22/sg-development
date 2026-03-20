@@ -32,12 +32,13 @@ app/
       Navbar.tsx              CLIENT — transparent on hero, white when scrolled; passes scrolled prop down
       NavDropdown.tsx         IntersectionObserver section tracking; scrolled-aware button styles
       LanguageSwitcher.tsx    swaps locale prefix; scrolled-aware text colors
-      ProfileSidebar.tsx      sticky card: photo, name, card_bio, social icons
+      ProfileSidebar.tsx      sticky card: photo, name, card_bio, location, CTA, chat nudge, social icons, available badge
+      ChatNudge.tsx           CLIENT — fires open-chat custom event; used in ProfileSidebar
       ScrollProgress.tsx      fixed top indigo bar, z-60
       HeroFull.tsx            CLIENT — full-viewport parallax hero (hero.jpg, Framer Motion useScroll)
       Work.tsx                id="work", image-aware cards, locale prop, click → /[locale]/work/[slug]
       Testimonials.tsx        id="testimonials", quote cards, bg-zinc-50
-      Services.tsx            id="services", service cards with icon in indigo-50 box
+      Services.tsx            id="services", service cards + categorized tech stack strip below
       Process.tsx             id="process", numbered steps
       About.tsx               id="about", bio + fun fact cards
       Contact.tsx             id="contact", form + social links
@@ -73,7 +74,7 @@ public/
 
   {/* Sidebar layout — starts after hero */}
   <div className="md:flex xl:mx-auto xl:max-w-350">
-    <aside className="hidden md:flex md:sticky md:top-14 md:h-[calc(100vh-3.5rem)] md:w-88 ...">
+    <aside className="hidden md:flex md:sticky md:top-14 md:h-[calc(100vh-3.5rem)] md:w-88 md:shrink-0 md:flex-col md:justify-center md:p-4">
       <ProfileSidebar />
     </aside>
     <main className="min-w-0 flex-1">
@@ -210,7 +211,7 @@ Note: folder names under `public/projects/` do not always match slugs (e.g. `hai
       "live": "https://...", "github": null
     }]
   },
-  "services": { "title_line1", "title_line2", "items": [{ "icon", "title", "description" }] },
+  "services": { "title_line1", "title_line2", "stack_label", "items": [{ "icon", "title", "description" }] },
   "process":  { "title_line1", "title_line2", "steps": [{ "number", "title", "description" }] },
   "about":    { "title_line1", "title_line2", "bio": "split on \\n\\n", "fun_facts": [{ "emoji", "text" }] },
   "contact":  { "title_line1", "title_line2", "body", "form_name", "form_email", "form_message",
@@ -239,9 +240,29 @@ Note: folder names under `public/projects/` do not always match slugs (e.g. `hai
 - **Auth**: `GOOGLE_CREDENTIALS` (full service account JSON, single-line) + `DIALOGFLOW_PROJECT_ID=portfolio-xost` in `.env.local` and Vercel env vars
 - **Session**: `crypto.randomUUID()` in `useState` initializer — one session per browser tab
 - **Locale**: sends `locale` to API route → `languageCode: locale === "pt" ? "pt-PT" : "en"`
+- **Speech bubble**: `useState(true)` — shows immediately on load; dismissed via X or by opening chat
+- **Notification dot**: pulsing dot on FAB while bubble is visible (`showBubble && !open`)
+- **Quick reply chips**: 4 locale-aware suggestion buttons shown on first open; hidden after first message sent
+- **Chat nudge**: `ChatNudge.tsx` (CLIENT) in ProfileSidebar fires `window.dispatchEvent(new CustomEvent("open-chat"))`; ChatWidget listens for this event
 - **Intents**: 11 intents in `dialogflow/intents/` — regenerate with `node dialogflow/generate.js`, rezip with `node dialogflow/zip.js`
 - **Import**: Dialogflow console → Settings → Import & Export → **Restore from zip** using `dialogflow/portfolio-agent.zip`
 - **ZIP must use forward slashes** — PowerShell `Compress-Archive` creates backslash paths that Dialogflow rejects; always use `node dialogflow/zip.js`
+
+## ProfileSidebar
+
+- Desktop: `rounded-2xl border border-zinc-100 bg-white shadow-sm` card, content-height (not full-height)
+- `aside` in `page.tsx`: `md:justify-center md:p-4` — card is vertically centered with equal space from navbar and bottom
+- Mobile: full-screen centered layout (`min-h-screen`)
+- Social icons use brand colors: GitHub `#24292e`, LinkedIn `#0077B5`, Email `#EA4335`
+- `ChatNudge` (client) renders below `CtaButton` in both layouts
+
+## Services — Tech Stack Strip
+
+- Below the 4 service cards, separated by `border-t border-zinc-100`
+- Label from dict: `stack_label` (`"Tech Stack"` / `"Tecnologias"`)
+- 5 categories hardcoded in component (not in dict — same across locales):
+  - Frontend (indigo), Backend (blue), Database (emerald), Cloud & DevOps (amber), AI & Tools (violet)
+- Pills: `rounded-full px-3 py-1 text-xs font-medium bg-*-50 text-*-700`
 
 ## Known Gotchas
 
@@ -254,3 +275,4 @@ Note: folder names under `public/projects/` do not always match slugs (e.g. `hai
 - Navbar is now a client component (`"use client"`) — do not make it a server component again
 - HeroFull is outside the sidebar layout — `id="home"` lives there, not in a section inside `<main>`
 - ScreenshotGallery: use double-rAF for init; suppress resets during smooth scroll (suppressResetRef)
+- `scroll-behavior: smooth` on `html` in `globals.css` — all `#hash` anchor links scroll smoothly site-wide
