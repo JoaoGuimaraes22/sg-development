@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { type Locale } from "../../../i18n-config";
+import ChatNudge from "./ChatNudge";
 
 interface HeroDict {
   name: string;
@@ -33,6 +34,7 @@ export default function ProfileSidebar({ hero, locale, mobile }: ProfileSidebarP
         </div>
         <LocationLine />
         <CtaButton locale={locale} />
+        <ChatNudge locale={locale} />
         <div className="flex gap-4">
           <SocialLinks />
         </div>
@@ -65,6 +67,7 @@ export default function ProfileSidebar({ hero, locale, mobile }: ProfileSidebarP
       <div className="h-px w-16 bg-linear-to-r from-indigo-200 via-indigo-400 to-indigo-200" />
 
       <CtaButton locale={locale} />
+      <ChatNudge locale={locale} />
 
       <div className="flex gap-5">
         <SocialLinks />

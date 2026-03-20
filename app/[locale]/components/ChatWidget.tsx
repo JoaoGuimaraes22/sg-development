@@ -17,6 +17,7 @@ const strings = {
     placeholder: "Type a message...",
     greeting: "Hi! I'm João's assistant. Ask me anything about his work, services, or availability.",
     ariaLabel: "Open chat",
+    bubble: "Ask me anything",
   },
   pt: {
     title: "Fala comigo",
@@ -24,6 +25,7 @@ const strings = {
     placeholder: "Escreve uma mensagem...",
     greeting: "Olá! Sou o assistente do João. Pergunta-me sobre o seu trabalho, serviços ou disponibilidade.",
     ariaLabel: "Abrir chat",
+    bubble: "Pergunta-me algo",
   },
 };
 
@@ -33,9 +35,21 @@ export default function ChatWidget({ locale }: { locale: Locale }) {
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
   const [sessionId] = useState(() => crypto.randomUUID());
+  const [showBubble, setShowBubble] = useState(true);
   const greetedRef = useRef(false);
   const bottomRef = useRef<HTMLDivElement>(null);
   const s = strings[locale] ?? strings.en;
+
+  // Listen for open-chat event from sidebar nudge
+  useEffect(() => {
+    const handler = () => setOpen(true);
+    window.addEventListener("open-chat", handler);
+    return () => window.removeEventListener("open-chat", handler);
+  }, []);
+
+  function dismissBubble() {
+    setShowBubble(false);
+  }
 
   useEffect(() => {
     if (open && !greetedRef.current) {
@@ -84,7 +98,7 @@ export default function ChatWidget({ locale }: { locale: Locale }) {
             exit={{ opacity: 0, scale: 0.95, y: 8 }}
             transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] as const }}
             style={{ transformOrigin: "bottom right" }}
-            className="w-80 sm:w-96 rounded-2xl border border-zinc-100 bg-white shadow-sm overflow-hidden flex flex-col"
+            className="w-[calc(100vw-2rem)] sm:w-96 rounded-2xl border border-zinc-100 bg-white shadow-sm overflow-hidden flex flex-col"
           >
             {/* Header */}
             <div className="flex items-center justify-between px-4 py-3 border-b border-zinc-100">
@@ -160,9 +174,40 @@ export default function ChatWidget({ locale }: { locale: Locale }) {
         )}
       </AnimatePresence>
 
+      {/* Speech bubble */}
+      <AnimatePresence>
+        {showBubble && !open && (
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9, y: 4 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            exit={{ opacity: 0, scale: 0.9, y: 4 }}
+            transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] as const }}
+            className="relative flex items-center gap-2 rounded-xl border border-zinc-100 bg-white px-4 py-2.5 shadow-md"
+          >
+            <button
+              onClick={() => { setOpen(true); dismissBubble(); }}
+              className="text-sm font-medium text-zinc-700 hover:text-indigo-600 transition-colors whitespace-nowrap"
+            >
+              {s.bubble}
+            </button>
+            <button
+              onClick={dismissBubble}
+              className="text-zinc-300 hover:text-zinc-500 transition-colors"
+              aria-label="Dismiss"
+            >
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M18 6 6 18M6 6l12 12" />
+              </svg>
+            </button>
+            {/* Tail pointing to FAB */}
+            <div className="absolute -bottom-1.5 right-5 size-3 rotate-45 border-b border-r border-zinc-100 bg-white" />
+          </motion.div>
+        )}
+      </AnimatePresence>
+
       {/* Toggle FAB */}
       <button
-        onClick={() => setOpen((v) => !v)}
+        onClick={() => { setOpen((v) => !v); if (showBubble) dismissBubble(); }}
         aria-label={s.ariaLabel}
         className="flex size-12 items-center justify-center rounded-full bg-indigo-600 text-white shadow-md hover:bg-indigo-700 transition-all"
       >
