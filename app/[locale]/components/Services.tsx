@@ -59,25 +59,25 @@ const PILL_COLORS: Record<string, string> = {
 
 const CARD_STYLES = [
   {
-    wrapper: "bg-indigo-600 hover:brightness-110 transition-[filter]",
+    wrapper: "bg-indigo-600 hover:brightness-110 hover:-translate-y-1 hover:shadow-md transition-all duration-300",
     title: "text-white",
     desc: "text-white/70",
     cta: "text-white/90",
   },
   {
-    wrapper: "bg-white border border-zinc-100 shadow-sm hover:shadow-md transition-shadow",
+    wrapper: "bg-white border border-zinc-100 shadow-sm hover:-translate-y-1 hover:shadow-md transition-all duration-300",
     title: "text-zinc-900",
     desc: "text-zinc-500",
     cta: "text-zinc-700",
   },
   {
-    wrapper: "bg-zinc-100 hover:shadow-md transition-shadow",
+    wrapper: "bg-zinc-100 hover:-translate-y-1 hover:shadow-md transition-all duration-300",
     title: "text-zinc-900",
     desc: "text-zinc-500",
     cta: "text-zinc-700",
   },
   {
-    wrapper: "bg-indigo-50 hover:shadow-md transition-shadow",
+    wrapper: "bg-indigo-50 hover:-translate-y-1 hover:shadow-md transition-all duration-300",
     title: "text-indigo-900",
     desc: "text-indigo-400",
     cta: "text-indigo-600",
@@ -95,18 +95,56 @@ const MODAL_ACCENTS = [
 export default function Services({ services }: ServicesProps) {
   const ref = useRef<HTMLElement>(null);
   const inView = useInView(ref, { once: true, margin: "-80px" });
+  const stackRef = useRef<HTMLDivElement>(null);
+  const stackInView = useInView(stackRef, { once: true, margin: "-40px" });
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
+  const triggerRefs = useRef<(HTMLButtonElement | null)[]>([]);
+  const closeButtonRef = useRef<HTMLButtonElement | null>(null);
+  const modalRef = useRef<HTMLDivElement | null>(null);
 
   const activeItem = activeIndex !== null ? services.items[activeIndex] : null;
   const activeAccent = activeIndex !== null ? MODAL_ACCENTS[activeIndex % MODAL_ACCENTS.length] : MODAL_ACCENTS[0];
 
+  function openModal(i: number) {
+    setActiveIndex(i);
+  }
+
+  function closeModal() {
+    const idx = activeIndex;
+    setActiveIndex(null);
+    if (idx !== null) triggerRefs.current[idx]?.focus();
+  }
+
+  // Focus close button when modal opens
   useEffect(() => {
+    if (activeIndex !== null) {
+      setTimeout(() => closeButtonRef.current?.focus(), 50);
+    }
+  }, [activeIndex]);
+
+  // Escape key + focus trap
+  useEffect(() => {
+    if (activeIndex === null) return;
     const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") setActiveIndex(null);
+      if (e.key === "Escape") { closeModal(); return; }
+      if (e.key !== "Tab") return;
+      const modal = modalRef.current;
+      if (!modal) return;
+      const focusable = Array.from(modal.querySelectorAll<HTMLElement>(
+        "button, [href], input, select, textarea, [tabindex]:not([tabindex='-1'])"
+      ));
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault(); last.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault(); first.focus();
+      }
     };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
-  }, []);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [activeIndex]);
 
   // Prevent body scroll when modal is open
   useEffect(() => {
@@ -162,7 +200,9 @@ export default function Services({ services }: ServicesProps) {
               {/* Bottom: CTA + emoji */}
               <div className="flex items-end justify-between mt-6">
                 <button
-                  onClick={() => setActiveIndex(i)}
+                  ref={(el) => { triggerRefs.current[i] = el; }}
+                  onClick={() => openModal(i)}
+                  aria-haspopup="dialog"
                   className={`text-xs font-semibold uppercase tracking-widest cursor-pointer hover:underline underline-offset-4 ${style.cta}`}
                 >
                   Learn more →
@@ -190,12 +230,16 @@ export default function Services({ services }: ServicesProps) {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.2 }}
-              onClick={() => setActiveIndex(null)}
+              onClick={closeModal}
             />
 
             {/* Card */}
             <div className="fixed inset-0 z-50 flex items-center justify-center p-4 pointer-events-none">
               <motion.div
+                ref={modalRef}
+                role="dialog"
+                aria-modal="true"
+                aria-labelledby="service-modal-title"
                 className="pointer-events-auto w-full max-w-md bg-white rounded-3xl shadow-2xl overflow-hidden"
                 initial={{ opacity: 0, scale: 0.92, y: 20 }}
                 animate={{ opacity: 1, scale: 1, y: 0 }}
@@ -208,12 +252,13 @@ export default function Services({ services }: ServicesProps) {
                     <span className={`flex h-12 w-12 items-center justify-center rounded-2xl text-2xl ${activeAccent.badge}`}>
                       {activeItem.icon}
                     </span>
-                    <h3 className="text-lg font-bold text-zinc-900 leading-snug max-w-55">
+                    <h3 id="service-modal-title" className="text-lg font-bold text-zinc-900 leading-snug max-w-55">
                       {activeItem.title}
                     </h3>
                   </div>
                   <button
-                    onClick={() => setActiveIndex(null)}
+                    ref={closeButtonRef}
+                    onClick={closeModal}
                     className="ml-4 shrink-0 rounded-full p-2 text-zinc-400 hover:bg-zinc-100 hover:text-zinc-600 transition-colors"
                     aria-label="Close"
                   >
@@ -268,33 +313,42 @@ export default function Services({ services }: ServicesProps) {
       </AnimatePresence>
 
       {/* Tech stack strip */}
-      <motion.div
-        className="mt-10 pt-8 border-t border-zinc-100"
-        initial={{ opacity: 0, y: 20 }}
-        animate={inView ? { opacity: 1, y: 0 } : {}}
-        transition={{ duration: 0.6, delay: 0.6, ease: [0.16, 1, 0.3, 1] as const }}
-      >
-        <p className="mb-6 text-xs font-semibold uppercase tracking-widest text-zinc-400">
+      <div ref={stackRef} className="mt-10 pt-8 border-t border-zinc-100">
+        <motion.p
+          className="mb-6 text-xs font-semibold uppercase tracking-widest text-zinc-400"
+          initial={{ opacity: 0, y: 10 }}
+          animate={stackInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.5, delay: 0.1, ease: [0.16, 1, 0.3, 1] as const }}
+        >
           {services.stack_label}
-        </p>
+        </motion.p>
         <div className="flex flex-col gap-4">
-          {STACK.map(({ category, color, items }) => (
-            <div key={category} className="flex flex-wrap items-center gap-2">
+          {STACK.map(({ category, color, items }, si) => (
+            <motion.div
+              key={category}
+              className="flex flex-wrap items-center gap-2"
+              initial={{ opacity: 0, x: -16 }}
+              animate={stackInView ? { opacity: 1, x: 0 } : {}}
+              transition={{ duration: 0.5, delay: 0.15 + si * 0.1, ease: [0.16, 1, 0.3, 1] as const }}
+            >
               <span className="mr-2 w-28 shrink-0 text-xs font-medium text-zinc-400">
                 {category}
               </span>
-              {items.map((item) => (
-                <span
+              {items.map((item, pi) => (
+                <motion.span
                   key={item}
                   className={`rounded-full px-3 py-1 text-xs font-medium ${PILL_COLORS[color]}`}
+                  initial={{ opacity: 0, scale: 0.85 }}
+                  animate={stackInView ? { opacity: 1, scale: 1 } : {}}
+                  transition={{ duration: 0.3, delay: 0.2 + si * 0.1 + pi * 0.04, ease: [0.16, 1, 0.3, 1] as const }}
                 >
                   {item}
-                </span>
+                </motion.span>
               ))}
-            </div>
+            </motion.div>
           ))}
         </div>
-      </motion.div>
+      </div>
     </section>
   );
 }

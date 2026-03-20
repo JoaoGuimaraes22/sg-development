@@ -1,11 +1,16 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { type Locale } from "../../i18n-config";
 import { getDictionary } from "../../get-dictionary";
 import ScrollProgress from "./components/ScrollProgress";
 import Navbar from "./components/Navbar";
 import ChatWidget from "./components/ChatWidget";
+import { MotionConfig } from "framer-motion";
+import LangSetter from "./components/LangSetter";
 
+// TODO: Replace with your actual production domain before deploying
 const SITE_URL = "https://your-domain.vercel.app";
+
+export const viewport: Viewport = { width: "device-width", initialScale: 1 };
 
 export async function generateMetadata({
   params,
@@ -74,7 +79,14 @@ export default async function LocaleLayout({
   };
 
   return (
-    <>
+    <MotionConfig reducedMotion="user">
+      <LangSetter locale={locale} />
+      <a
+        href="#work"
+        className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-100 focus:rounded-lg focus:bg-indigo-600 focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-white"
+      >
+        Skip to content
+      </a>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
@@ -83,6 +95,6 @@ export default async function LocaleLayout({
       <Navbar locale={locale} nav={dict.nav} />
       {children}
       <ChatWidget locale={locale} />
-    </>
+    </MotionConfig>
   );
 }

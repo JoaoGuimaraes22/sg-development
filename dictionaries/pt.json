@@ -262,22 +262,28 @@
     "title_line1": "SOBRE",
     "title_line2": "MIM",
     "bio": "Sou João Guimarães — web designer, desenvolvedor e estrategista de marketing digital baseado em Portugal. Trabalho com negócios locais e marcas em crescimento que querem ter credibilidade online e atrair mais clientes.\n\nComecei a construir websites por curiosidade, depois transformei isso num ofício. Ao longo dos anos combinei sensibilidade de design com profundidade técnica e uma compreensão genuína do que faz as pessoas clicar, confiar e comprar.\n\nQuando não estou a trabalhar num projeto, estou normalmente a explorar novas ferramentas, a ler sobre estratégia de marca, ou a demorar demasiado a preparar um café.",
+    "bio_callout": "Disponível para novos projetos — remoto ou local.",
+    "bio_cta": "Fala comigo →",
     "fun_facts": [
       {
         "emoji": "☕",
-        "text": "Obcecado com bom café."
+        "title": "Café em primeiro.",
+        "text": "Obcecado com bom café — é praticamente um requisito de trabalho."
       },
       {
         "emoji": "📚",
-        "text": "Atualmente a ler sobre psicologia de marca."
+        "title": "Sempre a aprender.",
+        "text": "Atualmente a ler sobre psicologia de marca e o que faz as pessoas confiar."
       },
       {
         "emoji": "🌍",
-        "text": "Disponível para projetos remotos em todo o mundo."
+        "title": "Trabalho remoto.",
+        "text": "Disponível para projetos remotos em todo o mundo, não só em Portugal."
       },
       {
         "emoji": "⚡",
-        "text": "Entrega rápida sem sacrificar qualidade."
+        "title": "Entrega rápida.",
+        "text": "Prazos apertados sem cortar atalhos — esse é o padrão."
       }
     ]
   },

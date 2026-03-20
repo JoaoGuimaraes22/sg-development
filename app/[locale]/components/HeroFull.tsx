@@ -197,6 +197,7 @@ export default function HeroFull({ hero }: { hero: HeroDict }) {
           aria-hidden
           fill
           priority
+          sizes="100vw"
           className="object-cover object-top"
         />
       </motion.div>

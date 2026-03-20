@@ -61,7 +61,7 @@ export default function Process({ process }: ProcessProps) {
           <div key={step.number} className="flex items-start flex-1">
             {/* Step node */}
             <motion.div
-              className="flex flex-col items-center text-center flex-1"
+              className="group flex flex-col items-center text-center flex-1 cursor-default"
               initial={{ opacity: 0, y: 20 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: 0.1 + i * 0.15, ease: [0.16, 1, 0.3, 1] as const }}
@@ -71,7 +71,7 @@ export default function Process({ process }: ProcessProps) {
                 {step.number}
               </div>
               {/* Card */}
-              <div className="rounded-xl border border-zinc-100 bg-white px-6 py-5 shadow-sm w-full">
+              <div className="rounded-xl border border-zinc-100 bg-white px-6 py-5 shadow-sm w-full transition-all duration-300 group-hover:-translate-y-1 group-hover:shadow-md">
                 <h3 className="text-base font-semibold text-zinc-900 mb-2">{step.title}</h3>
                 <p className="text-sm text-zinc-500 leading-relaxed">{step.description}</p>
               </div>
@@ -99,7 +99,7 @@ export default function Process({ process }: ProcessProps) {
           <div key={step.number}>
             {/* Step node */}
             <motion.div
-              className="flex items-start gap-4"
+              className="group flex items-start gap-4 cursor-default"
               initial={{ opacity: 0, x: -20 }}
               animate={inView ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.5, delay: 0.1 + i * 0.15, ease: [0.16, 1, 0.3, 1] as const }}
@@ -109,7 +109,7 @@ export default function Process({ process }: ProcessProps) {
                 {step.number}
               </div>
               {/* Card */}
-              <div className="flex-1 rounded-xl border border-zinc-100 bg-white px-4 py-4 shadow-sm">
+              <div className="flex-1 rounded-xl border border-zinc-100 bg-white px-4 py-4 shadow-sm transition-all duration-300 group-hover:-translate-y-1 group-hover:shadow-md">
                 <h3 className="text-sm font-semibold text-zinc-900 mb-1.5">{step.title}</h3>
                 <p className="text-xs text-zinc-500 leading-relaxed">{step.description}</p>
               </div>

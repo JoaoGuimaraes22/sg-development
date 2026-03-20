@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef } from "react";
-import { motion, useInView } from "framer-motion";
+import { motion, useInView, useReducedMotion } from "framer-motion";
 
 interface TestimonialItem {
   quote: string;
@@ -85,6 +85,7 @@ function ScrollColumn({
   duration: string;
   globalIndexOffset: number;
 }) {
+  const prefersReduced = useReducedMotion();
   // Triple the array: moving -33.333% of total height = exactly 1 set height → seamless loop
   const tripled = [...items, ...items, ...items];
 
@@ -92,7 +93,7 @@ function ScrollColumn({
     <div className="flex-1 min-w-0 overflow-hidden">
       <div
         className="hover:[animation-play-state:paused]"
-        style={{
+        style={prefersReduced ? {} : {
           animation: `testimonials-scroll-up ${duration} linear infinite`,
         }}
       >

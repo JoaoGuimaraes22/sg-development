@@ -1,4 +1,8 @@
+"use client";
+
 import Image from "next/image";
+import { useRef } from "react";
+import { motion, useInView } from "framer-motion";
 import { type Locale } from "../../../i18n-config";
 import ChatNudge from "./ChatNudge";
 
@@ -13,67 +17,75 @@ interface ProfileSidebarProps {
   mobile?: boolean;
 }
 
+const ease = [0.16, 1, 0.3, 1] as const;
+
+function fadeUp(inView: boolean, delay: number) {
+  return {
+    initial: { opacity: 0, y: 16 },
+    animate: inView ? { opacity: 1, y: 0 } : {},
+    transition: { duration: 0.6, delay, ease },
+  };
+}
+
 export default function ProfileSidebar({ hero, locale, mobile }: ProfileSidebarProps) {
+  const ref = useRef<HTMLDivElement>(null);
+  const inView = useInView(ref, { once: true, amount: 0.8 });
+
   if (mobile) {
     return (
-      <div className="flex min-h-screen flex-col items-center justify-center gap-6 px-6 py-16 text-center">
-        <div className="relative h-28 w-28 overflow-hidden rounded-full ring-2 ring-indigo-500 ring-offset-2 shadow-md">
-          <Image
-            src="/profile.jpg"
-            alt={hero.name}
-            fill
-            className="object-cover"
-            priority
-          />
-        </div>
-        <div>
+      <div ref={ref} className="flex min-h-screen flex-col items-center justify-center gap-6 px-6 py-16 text-center">
+        <motion.div
+          className="relative h-28 w-28 overflow-hidden rounded-full ring-2 ring-indigo-500 ring-offset-2 shadow-md"
+          initial={{ opacity: 0, scale: 0.85 }}
+          animate={inView ? { opacity: 1, scale: 1 } : {}}
+          transition={{ duration: 0.6, ease }}
+        >
+          <Image src="/profile.jpg" alt={hero.name} fill className="object-cover" priority />
+        </motion.div>
+        <motion.div {...fadeUp(inView, 0.15)}>
           <h2 className="text-xl font-bold text-zinc-900">{hero.name}</h2>
-          <p className="mt-2 text-sm text-zinc-500 leading-relaxed">
-            {hero.card_bio}
-          </p>
-        </div>
-        <LocationLine />
-        <CtaButton locale={locale} />
-        <ChatNudge locale={locale} />
-        <div className="flex gap-4">
-          <SocialLinks />
-        </div>
-        <AvailableBadge />
+          <p className="mt-2 text-sm text-zinc-500 leading-relaxed">{hero.card_bio}</p>
+        </motion.div>
+        <motion.div {...fadeUp(inView, 0.25)}><LocationLine /></motion.div>
+        <motion.div {...fadeUp(inView, 0.35)}><CtaButton locale={locale} /></motion.div>
+        <motion.div {...fadeUp(inView, 0.4)}><ChatNudge locale={locale} /></motion.div>
+        <motion.div className="flex gap-4" {...fadeUp(inView, 0.45)}><SocialLinks /></motion.div>
+        <motion.div {...fadeUp(inView, 0.5)}><AvailableBadge /></motion.div>
       </div>
     );
   }
 
   return (
-    <div className="flex w-full flex-col items-center gap-6 rounded-2xl border border-zinc-100 bg-white p-8 shadow-sm">
-      <div className="relative h-32 w-32 overflow-hidden rounded-full ring-2 ring-indigo-500 ring-offset-2 shadow-md">
-        <Image
-          src="/profile.jpg"
-          alt={hero.name}
-          fill
-          className="object-cover"
-          priority
-        />
-      </div>
+    <div ref={ref} className="flex w-full flex-col items-center gap-6 rounded-2xl border border-zinc-100 bg-white p-8 shadow-sm">
+      <motion.div
+        className="relative h-32 w-32 overflow-hidden rounded-full ring-2 ring-indigo-500 ring-offset-2 shadow-md"
+        initial={{ opacity: 0, scale: 0.85 }}
+        animate={inView ? { opacity: 1, scale: 1 } : {}}
+        transition={{ duration: 0.65, ease }}
+      >
+        <Image src="/profile.jpg" alt={hero.name} fill className="object-cover" priority />
+      </motion.div>
 
-      <div className="text-center">
+      <motion.div className="text-center" {...fadeUp(inView, 0.15)}>
         <h2 className="text-base font-bold text-zinc-900">{hero.name}</h2>
-        <p className="mt-1.5 text-xs leading-relaxed text-zinc-500">
-          {hero.card_bio}
-        </p>
-      </div>
+        <p className="mt-1.5 text-xs leading-relaxed text-zinc-500">{hero.card_bio}</p>
+      </motion.div>
 
-      <LocationLine />
+      <motion.div {...fadeUp(inView, 0.25)}><LocationLine /></motion.div>
 
-      <div className="h-px w-16 bg-linear-to-r from-indigo-200 via-indigo-400 to-indigo-200" />
+      <motion.div
+        className="h-px w-16 bg-linear-to-r from-indigo-200 via-indigo-400 to-indigo-200"
+        initial={{ opacity: 0, scaleX: 0 }}
+        animate={inView ? { opacity: 1, scaleX: 1 } : {}}
+        transition={{ duration: 0.5, delay: 0.32, ease }}
+      />
 
-      <CtaButton locale={locale} />
-      <ChatNudge locale={locale} />
+      <motion.div {...fadeUp(inView, 0.38)}><CtaButton locale={locale} /></motion.div>
+      <motion.div {...fadeUp(inView, 0.44)}><ChatNudge locale={locale} /></motion.div>
 
-      <div className="flex gap-5">
-        <SocialLinks />
-      </div>
+      <motion.div className="flex gap-5" {...fadeUp(inView, 0.5)}><SocialLinks /></motion.div>
 
-      <AvailableBadge />
+      <motion.div {...fadeUp(inView, 0.56)}><AvailableBadge /></motion.div>
     </div>
   );
 }

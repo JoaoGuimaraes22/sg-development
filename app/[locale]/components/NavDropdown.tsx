@@ -58,6 +58,9 @@ export default function NavDropdown({ sections, scrolled }: NavDropdownProps) {
     <div ref={containerRef} className="relative">
       <button
         onClick={() => setOpen((v) => !v)}
+        aria-haspopup="true"
+        aria-expanded={open}
+        aria-controls="nav-menu"
         className={`flex items-center gap-2 rounded-full border px-4 py-1.5 text-sm transition-colors ${
           scrolled
             ? "border-zinc-200 text-zinc-600 hover:border-zinc-300 hover:text-zinc-900"
@@ -94,7 +97,7 @@ export default function NavDropdown({ sections, scrolled }: NavDropdownProps) {
       </button>
 
       {open && (
-        <div className="absolute left-1/2 top-full z-50 mt-2 w-44 -translate-x-1/2 overflow-hidden rounded-xl border border-zinc-100 bg-white py-1 shadow-lg">
+        <div id="nav-menu" className="absolute left-1/2 top-full z-50 mt-2 w-44 -translate-x-1/2 overflow-hidden rounded-xl border border-zinc-100 bg-white py-1 shadow-lg">
           {sections.map(({ id, label }) => (
             <button
               key={id}

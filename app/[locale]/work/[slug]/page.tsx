@@ -9,6 +9,33 @@ interface Params {
   slug: string;
 }
 
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string; slug: string }>;
+}) {
+  const { locale, slug } = (await params) as Params & { locale: Locale };
+  const dict = await getDictionary(locale);
+  const project = dict.work.projects.find((p) => p.slug === slug);
+  if (!project) return {};
+
+  return {
+    title: `${project.title} — João Guimarães`,
+    description: project.description,
+    openGraph: {
+      title: project.title,
+      description: project.description,
+      images: project.image ? [{ url: project.image }] : [],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: project.title,
+      description: project.description,
+      images: project.image ? [project.image] : [],
+    },
+  };
+}
+
 export async function generateStaticParams() {
   const enDict = await getDictionary("en");
   return enDict.work.projects.flatMap((project) =>

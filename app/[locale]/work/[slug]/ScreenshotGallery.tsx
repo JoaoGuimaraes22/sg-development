@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef, useEffect, useState, useCallback } from "react";
+import Image from "next/image";
 
 interface Props {
   images: string[];
@@ -141,9 +142,11 @@ export default function ScreenshotGallery({ images, title }: Props) {
               key={i}
               className="shrink-0 snap-start w-full md:w-[calc((100%-2rem)/3)] overflow-hidden rounded-xl border border-zinc-100 bg-white shadow-sm"
             >
-              <img
+              <Image
                 src={src}
                 alt={`${title} screenshot ${(i % count) + 1}`}
+                width={1280}
+                height={800}
                 className="w-full h-auto"
                 draggable={false}
               />

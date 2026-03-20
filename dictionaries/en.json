@@ -262,22 +262,28 @@
     "title_line1": "ABOUT",
     "title_line2": "ME",
     "bio": "I'm João Guimarães — a web designer, developer, and digital marketing strategist based in Portugal. I work with local businesses and growing brands that want to look credible online and attract more customers.\n\nI started building websites out of curiosity, then turned that into a craft. Over the years I've combined design sensibility with technical depth and a genuine understanding of what makes people click, trust, and buy.\n\nWhen I'm not working on a project, I'm usually exploring new tools, reading about brand strategy, or taking too long to make coffee.",
+    "bio_callout": "Open to new projects — remote or local.",
+    "bio_cta": "Get in touch →",
     "fun_facts": [
       {
         "emoji": "☕",
-        "text": "Obsessive about good coffee."
+        "title": "Coffee first.",
+        "text": "Obsessive about good coffee — it's practically a workflow requirement."
       },
       {
         "emoji": "📚",
-        "text": "Currently reading about brand psychology."
+        "title": "Always learning.",
+        "text": "Currently reading about brand psychology and what makes people trust."
       },
       {
         "emoji": "🌍",
-        "text": "Available for remote projects worldwide."
+        "title": "Work anywhere.",
+        "text": "Available for remote projects worldwide, not just Portugal."
       },
       {
         "emoji": "⚡",
-        "text": "Fast turnaround without sacrificing quality."
+        "title": "Fast delivery.",
+        "text": "Tight deadlines without cutting corners — that's the standard."
       }
     ]
   },

@@ -2,7 +2,7 @@
 
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
-import { useRouter } from "next/navigation";
+import Link from "next/link";
 import Image from "next/image";
 import { type Locale } from "../../../i18n-config";
 
@@ -42,8 +42,6 @@ const TAG_COLORS = [
 export default function Work({ work, locale }: WorkProps) {
   const ref = useRef<HTMLElement>(null);
   const inView = useInView(ref, { once: true, margin: "-80px" });
-  const router = useRouter();
-
   return (
     <section id="work" ref={ref} className="px-6 py-16 md:px-8 md:py-24 xl:px-16 xl:py-32">
       <motion.div
@@ -62,13 +60,12 @@ export default function Work({ work, locale }: WorkProps) {
 
       <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
         {work.projects.map((project, i) => (
+          <Link key={project.slug} href={`/${locale}/work/${project.slug}`} className="group rounded-2xl overflow-hidden">
           <motion.div
-            key={project.slug}
             initial={{ opacity: 0, y: 30 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.1 + i * 0.12, ease: [0.16, 1, 0.3, 1] as const }}
-            onClick={() => router.push(`/${locale}/work/${project.slug}`)}
-            className="group cursor-pointer rounded-2xl border border-zinc-100 bg-white shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden"
+            className="rounded-2xl border border-zinc-100 bg-white shadow-sm hover:-translate-y-1 hover:shadow-md transition-all duration-300 overflow-hidden"
           >
             {/* Image area */}
             <div className="relative h-44 bg-zinc-50 overflow-hidden">
@@ -77,6 +74,7 @@ export default function Work({ work, locale }: WorkProps) {
                   src={project.image}
                   alt={project.title}
                   fill
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                   className="object-cover group-hover:scale-105 transition-transform duration-500"
                 />
               ) : (
@@ -110,6 +108,7 @@ export default function Work({ work, locale }: WorkProps) {
               </div>
             </div>
           </motion.div>
+          </Link>
         ))}
       </div>
     </section>
