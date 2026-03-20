@@ -16,12 +16,20 @@ export default function ProfileSidebar({ hero, mobile }: ProfileSidebarProps) {
   if (mobile) {
     return (
       <div className="flex min-h-screen flex-col items-center justify-center gap-6 px-6 py-16 text-center">
-        <div className="relative h-28 w-28 overflow-hidden rounded-full border-2 border-zinc-100 shadow-md">
-          <Image src="/profile.jpg" alt={hero.name} fill className="object-cover" priority />
+        <div className="relative h-28 w-28  overflow-hidden rounded-full border-2 border-zinc-100 shadow-md">
+          <Image
+            src="/profile.jpg"
+            alt={hero.name}
+            fill
+            className="object-cover"
+            priority
+          />
         </div>
         <div>
           <h2 className="text-xl font-bold text-zinc-900">{hero.name}</h2>
-          <p className="mt-2 text-sm text-zinc-500 leading-relaxed">{hero.card_bio}</p>
+          <p className="mt-2 text-sm text-zinc-500 leading-relaxed">
+            {hero.card_bio}
+          </p>
         </div>
         <div className="flex gap-4">
           <SocialLinks />
@@ -34,12 +42,20 @@ export default function ProfileSidebar({ hero, mobile }: ProfileSidebarProps) {
   return (
     <div className="flex h-full flex-col items-center justify-center gap-8 p-8 border-r border-zinc-100">
       <div className="relative h-32 w-32 overflow-hidden rounded-full border-2 border-zinc-100 shadow-md">
-        <Image src="/profile.jpg" alt={hero.name} fill className="object-cover" priority />
+        <Image
+          src="/profile.jpg"
+          alt={hero.name}
+          fill
+          className="object-cover"
+          priority
+        />
       </div>
 
       <div className="text-center">
         <h2 className="text-base font-bold text-zinc-900">{hero.name}</h2>
-        <p className="mt-2 text-xs leading-relaxed text-zinc-500">{hero.card_bio}</p>
+        <p className="mt-2 text-xs leading-relaxed text-zinc-500">
+          {hero.card_bio}
+        </p>
       </div>
 
       <div className="h-px w-16 bg-zinc-100" />
@@ -94,7 +110,16 @@ function SocialLinks() {
         className="text-zinc-400 transition-colors hover:text-zinc-900"
         aria-label="Email"
       >
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+        <svg
+          width="20"
+          height="20"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="1.8"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        >
           <rect width="20" height="16" x="2" y="4" rx="2" />
           <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
         </svg>

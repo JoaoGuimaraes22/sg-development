@@ -1,7 +1,7 @@
 {
   "nav": {
     "home": "Home",
-    "work": "Work",
+    "work": "Projects",
     "reviews": "Reviews",
     "services": "Services",
     "workflow": "Workflow",
@@ -33,7 +33,7 @@
   },
   "work": {
     "title_line1": "SELECTED",
-    "title_line2": "WORK",
+    "title_line2": "PROJECTS",
     "cta": "See all projects",
     "projects": [
       {
@@ -49,11 +49,7 @@
           "/projects/cascaisvolley/4.png",
           "/projects/cascaisvolley/5.png"
         ],
-        "tags": [
-          "Web Design",
-          "Development",
-          "Sports"
-        ],
+        "tags": ["Web Design", "Development", "Sports"],
         "live": "https://www.cascaisvolley.com",
         "github": null
       },
@@ -70,11 +66,7 @@
           "/projects/restaurant/4.png",
           "/projects/restaurant/5.png"
         ],
-        "tags": [
-          "Web Design",
-          "Development",
-          "Hospitality"
-        ],
+        "tags": ["Web Design", "Development", "Hospitality"],
         "live": "https://koya-bistro.vercel.app",
         "github": null
       },
@@ -91,11 +83,7 @@
           "/projects/clinic/4.png",
           "/projects/clinic/5.png"
         ],
-        "tags": [
-          "Web Design",
-          "Development",
-          "Healthcare"
-        ],
+        "tags": ["Web Design", "Development", "Healthcare"],
         "live": "https://dentist-flax-psi.vercel.app",
         "github": null
       },
@@ -112,11 +100,7 @@
           "/projects/plumber/4.png",
           "/projects/plumber/5.png"
         ],
-        "tags": [
-          "Web Design",
-          "Development",
-          "Local Services"
-        ],
+        "tags": ["Web Design", "Development", "Local Services"],
         "live": "https://plumber-xi.vercel.app",
         "github": null
       },
@@ -133,11 +117,7 @@
           "/projects/mechanic/4.png",
           "/projects/mechanic/5.png"
         ],
-        "tags": [
-          "Web Design",
-          "Development",
-          "Automotive"
-        ],
+        "tags": ["Web Design", "Development", "Automotive"],
         "live": "https://mechanic-five.vercel.app",
         "github": null
       },
@@ -154,11 +134,7 @@
           "/projects/hairsalon/4.png",
           "/projects/hairsalon/5.png"
         ],
-        "tags": [
-          "Web Design",
-          "Development",
-          "Beauty"
-        ],
+        "tags": ["Web Design", "Development", "Beauty"],
         "live": "https://hair-salon-omega-taupe.vercel.app",
         "github": null
       }

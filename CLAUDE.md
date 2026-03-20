@@ -24,17 +24,17 @@ app/
   layout.tsx                  minimal shell
   [locale]/
     layout.tsx                generateMetadata (OG/Twitter/JSON-LD), ScrollProgress
-    page.tsx                  sticky two-column layout (xl:mx-auto xl:max-w-350)
+    page.tsx                  HeroFull + sidebar layout (no pt-14 wrapper)
     work/[slug]/
       page.tsx                project detail page (server component)
+      ScreenshotGallery.tsx   client component — infinite scroll gallery
     components/
-      Navbar.tsx              fixed top, logo | NavDropdown | LanguageSwitcher
-      NavDropdown.tsx         IntersectionObserver section tracking
-      LanguageSwitcher.tsx    swaps locale prefix in pathname
+      Navbar.tsx              CLIENT — transparent on hero, white when scrolled; passes scrolled prop down
+      NavDropdown.tsx         IntersectionObserver section tracking; scrolled-aware button styles
+      LanguageSwitcher.tsx    swaps locale prefix; scrolled-aware text colors
       ProfileSidebar.tsx      sticky card: photo, name, card_bio, social icons
       ScrollProgress.tsx      fixed top indigo bar, z-60
-      ScrollDownCue.tsx       mobile-only scroll button
-      Hero.tsx                id="home", title + tagline + CTA buttons + stats
+      HeroFull.tsx            CLIENT — full-viewport parallax hero (hero.jpg, Framer Motion useScroll)
       Work.tsx                id="work", image-aware cards, locale prop, click → /[locale]/work/[slug]
       Testimonials.tsx        id="testimonials", quote cards, bg-zinc-50
       Services.tsx            id="services", service cards with icon in indigo-50 box
@@ -43,15 +43,10 @@ app/
       Contact.tsx             id="contact", form + social links
 public/
   profile.jpg                 profile photo
-  hero-img.jpg                hero background (opacity-25, object-top)
+  hero.jpg                    full-viewport hero background (parallax, object-top)
   og-image.png                OG image 1200×630
   projects/
-    cascais-volley.png        card thumbnail
-    koya-bistro.png
-    sorriso-plus.png
-    aquafix.png
-    revicar.png
-    hair-salon.png
+    cascais-volley.png        card thumbnail (+ others)
     cascaisvolley/1-5.png     mobile screenshot gallery (5 images per project)
     restaurant/1-5.png
     clinic/1-5.png
@@ -63,38 +58,79 @@ public/
 ## Layout (page.tsx)
 
 ```tsx
-<div className="pt-14 md:flex md:min-h-screen xl:mx-auto xl:max-w-350">
-  <aside className="hidden md:flex md:sticky md:top-14 md:h-[calc(100vh-3.5rem)] md:w-88 ...">
-    <ProfileSidebar />
-  </aside>
-  <main className="min-w-0 flex-1">
-    {/* mobile: full-screen profile card */}
-    <div className="xl:max-w-4xl 2xl:max-w-5xl">
-      <Hero />
-      <Work locale={locale} />
-      <Testimonials />
-      <Services />
-      <Process />
-      <About />
-      <Contact />
-    </div>
-  </main>
-</div>
+<>
+  {/* Full-viewport parallax hero — full width, no sidebar, navbar floats over it */}
+  <HeroFull hero={dict.hero} />
+
+  {/* Sidebar layout — starts after hero */}
+  <div className="md:flex xl:mx-auto xl:max-w-350">
+    <aside className="hidden md:flex md:sticky md:top-14 md:h-[calc(100vh-3.5rem)] md:w-88 ...">
+      <ProfileSidebar />
+    </aside>
+    <main className="min-w-0 flex-1">
+      {/* mobile: full-screen profile card */}
+      <div className="xl:max-w-4xl 2xl:max-w-5xl">
+        <Work locale={locale} />
+        <Testimonials />
+        <Services />
+        <Process />
+        <About />
+        <Contact />
+      </div>
+    </main>
+  </div>
+</>
 ```
+
+Note: NO `pt-14` on the outer wrapper — the navbar is fixed and floats over HeroFull. The sidebar `md:sticky md:top-14` keeps content below the navbar after the hero.
 
 ## Sections
 
-| Section      | id             | Nav label  | Notes                                 |
-| ------------ | -------------- | ---------- | ------------------------------------- |
-| Hero         | `home`         | Home       | Title + tagline + CTA buttons + stats |
-| Work         | `work`         | Work       | Image-aware cards, slug-based pages   |
-| Testimonials | `testimonials` | —          | Quote cards, bg-zinc-50, not in nav   |
-| Services     | `services`     | Services   | Icon + title + short description      |
-| Process      | `process`      | _optional_ | Numbered steps (not in navbar)        |
-| About        | `about`        | About      | Bio paragraphs + fun facts            |
-| Contact      | `contact`      | Contact    | Form + social links                   |
+| Section      | id             | Nav label | Dict key    | Notes                               |
+| ------------ | -------------- | --------- | ----------- | ----------------------------------- |
+| Hero         | `home`         | Home      | `home`      | Full-viewport parallax (HeroFull)   |
+| Work         | `work`         | Work      | `work`      | Image-aware cards, slug-based pages |
+| Testimonials | `testimonials` | Reviews   | `reviews`   | Quote cards, bg-zinc-50             |
+| Services     | `services`     | Services  | `services`  | Icon + title + short description    |
+| Process      | `process`      | Workflow  | `workflow`  | Numbered steps                      |
+| About        | `about`        | About     | `about`     | Bio paragraphs + fun facts          |
+| Contact      | `contact`      | Contact   | `contact`   | Form + social links                 |
 
-Nav tracks: `home, work, services, about, contact`. Process is not tracked.
+All 7 sections are tracked by NavDropdown IntersectionObserver.
+
+## HeroFull
+
+Client component. Full-viewport parallax hero rendered **outside** the sidebar layout.
+
+- `hero.jpg` as `<motion.img>` with `h-[130%] object-top`, `y` driven by `useScroll({ offset: ["start start", "end start"] })` → `useTransform([0,1], ["0%", "20%"])`
+- Gradient overlay: `bg-linear-to-t from-zinc-900/90 via-zinc-900/50 to-zinc-900/10`
+- Content bottom-left: title (white / white/25), tagline, CTAs, stats — entry animations
+- Scroll cue: bouncing chevron at bottom center
+- Dict fields used: `title_line1`, `title_line2`, `tagline`, `cta`, `cta_secondary`, `stats`
+
+## Navbar (scroll-aware)
+
+Client component. Scroll threshold: `window.scrollY > window.innerHeight * 0.8`.
+
+| State       | Header bg                                      | Logo            | NavDropdown button              |
+| ----------- | ---------------------------------------------- | --------------- | ------------------------------- |
+| Transparent | `bg-transparent border-white/10`               | `text-white/90` | `border-white/20 text-white/80` |
+| Scrolled    | `bg-white/90 backdrop-blur-md border-zinc-100` | `text-zinc-900` | `border-zinc-200 text-zinc-600` |
+
+`scrolled` prop flows to `NavDropdown` and `LanguageSwitcher`.
+
+## ScreenshotGallery (`work/[slug]/ScreenshotGallery.tsx`)
+
+Client component. Receives `images: string[]` + `title: string`.
+
+- Triples the array for seamless infinite scroll; starts `scrollLeft` at middle set
+- **Init**: double-rAF (`rAF → rAF → measure`) — single rAF is too early for flex layout
+- **Measurement**: stride = `second.getBoundingClientRect().left - first.getBoundingClientRect().left`
+- **Reset**: silently teleports `scrollLeft` ±`singleSetWidth` when reaching set edges; suppressed during arrow smooth-scroll via `suppressResetRef` + 450ms timeout
+- **Arrows** (desktop only, `hidden md:flex`): `scrollBy(±stride, smooth)`; pre-teleports if crossing set boundary
+- **Dots**: always visible; clicking navigates to `ssw + index * stride`
+- **Mobile** (`w-full`): 1 image per view · **Desktop** (`md:w-[calc((100%-2rem)/3)]`): 3 images visible
+- `snap-x snap-mandatory` + `snap-start` per item · `scrollbar-none`
 
 ## Work Detail Page (`work/[slug]/page.tsx`)
 
@@ -102,7 +138,7 @@ Server component. Reads project from dictionary by slug. Renders:
 
 1. Back link → `/${locale}#work`
 2. Tag pills
-3. Title + description quote (border-l-4 indigo)
+3. Title + description quote (`border-l-4 border-indigo-200`)
 4. `<ScreenshotGallery>` (if `project.images` has entries)
 5. `long_description` paragraphs (split on `\n\n`)
 6. Live / GitHub buttons
@@ -127,24 +163,23 @@ Note: folder names under `public/projects/` do not always match slugs (e.g. `hai
 - **Accent**: `indigo-600` — trustworthy, professional, client-facing
 - **Background**: `#fafafa` — clean white, non-technical clients
 - **Personality**: clean, professional, conversion-focused — targeted at local businesses
-- **Hero tagline**: position around results (websites that convert, brands that resonate)
 
 ## Design Patterns
 
-- **Two-tone title**: line1 `text-zinc-900`, line2 `text-zinc-200`, both `font-black uppercase tracking-tight text-4xl sm:text-5xl md:text-6xl xl:text-[7rem]`, in `motion.div leading-none mb-12`
+- **Two-tone title** (sidebar layout sections): line1 `text-zinc-900`, line2 `text-zinc-200`, both `font-black uppercase tracking-tight text-4xl sm:text-5xl md:text-6xl xl:text-[7rem]`, in `motion.div leading-none mb-12`
+- **Two-tone title** (HeroFull, dark bg): line1 `text-white`, line2 `text-white/25`, larger `xl:text-[8rem]`
 - **Section padding**: `px-6 py-16 md:px-8 md:py-24 xl:px-16 xl:py-32`
 - **Scroll animations**: `useInView(ref, { once: true, margin: "-80px" })`
 - **Stagger**: lift `inView` to parent, pass as prop; children use `delay: index * 0.12`
 - **Cards**: `border border-zinc-100 bg-white shadow-sm hover:shadow-md` — light, clean
 - **Tag pills**: `TAG_COLORS` array (indigo/blue/emerald/amber/rose/cyan) `bg-*-50 text-*-700`
 - **Project cards**: click navigates via `useRouter().push()`, inner links use `e.stopPropagation()`
-- **About bio**: multi-paragraph, split on `\n\n` in component
 
 ## Dictionary Shape
 
 ```json
 {
-  "nav": { "home", "work", "services", "about", "contact" },
+  "nav": { "home", "work", "reviews", "services", "workflow", "about", "contact" },
   "hero": {
     "name": "João Guimarães",
     "card_bio": "...",
@@ -153,79 +188,25 @@ Note: folder names under `public/projects/` do not always match slugs (e.g. `hai
     "tagline": "...",
     "cta": "Start a Project",
     "cta_secondary": "See My Work",
-    "stats": [
-      { "value": "+X", "label": "Websites Launched" },
-      { "value": "+X", "label": "Happy Clients" },
-      { "value": "+X", "label": "Years Experience" }
-    ]
+    "stats": [{ "value": "+X", "label": "..." }]
   },
   "work": {
-    "title_line1": "SELECTED",
-    "title_line2": "WORK",
-    "cta": "See all projects",
-    "projects": [
-      {
-        "slug": "project-slug",
-        "title": "Project Title",
-        "description": "Short description (shown on card + detail page quote)",
-        "long_description": "Multi-paragraph. Split on \\n\\n in component.",
-        "image": "/projects/thumbnail.png",
-        "images": [
-          "/projects/folder/1.png",
-          "/projects/folder/2.png",
-          "/projects/folder/3.png",
-          "/projects/folder/4.png",
-          "/projects/folder/5.png"
-        ],
-        "tags": ["Web Design", "Development", "Industry"],
-        "live": "https://...",
-        "github": null
-      }
-    ]
+    "title_line1": "SELECTED", "title_line2": "WORK", "cta": "See all projects",
+    "projects": [{
+      "slug": "project-slug", "title": "...", "description": "...",
+      "long_description": "Multi-paragraph. Split on \\n\\n.",
+      "image": "/projects/thumbnail.png",
+      "images": ["/projects/folder/1.png", "...5 total"],
+      "tags": ["Web Design", "Development", "Industry"],
+      "live": "https://...", "github": null
+    }]
   },
-  "services": {
-    "title_line1": "WHAT I",
-    "title_line2": "OFFER",
-    "items": [
-      { "icon": "🖥️", "title": "Web Design & Development", "description": "..." },
-      { "icon": "🎨", "title": "Branding & Visual Identity", "description": "..." },
-      { "icon": "📈", "title": "SEO & Digital Marketing", "description": "..." },
-      { "icon": "📱", "title": "Social Media Strategy", "description": "..." }
-    ]
-  },
-  "process": {
-    "title_line1": "HOW I",
-    "title_line2": "WORK",
-    "steps": [
-      { "number": "01", "title": "Discover", "description": "..." },
-      { "number": "02", "title": "Design", "description": "..." },
-      { "number": "03", "title": "Build", "description": "..." },
-      { "number": "04", "title": "Launch", "description": "..." }
-    ]
-  },
-  "about": {
-    "title_line1": "ABOUT",
-    "title_line2": "ME",
-    "bio": "Multi-paragraph bio separated by \\n\\n",
-    "fun_facts": [{ "emoji": "☕", "text": "..." }]
-  },
-  "contact": {
-    "title_line1": "LET'S",
-    "title_line2": "TALK",
-    "body": "...",
-    "form_name": "Name",
-    "form_email": "Email",
-    "form_message": "Message",
-    "form_name_placeholder": "Your Name",
-    "form_email_placeholder": "your@email.com",
-    "form_message_placeholder": "Tell me about your project...",
-    "form_submit": "Send Message",
-    "form_success": "Message sent! I'll get back to you soon.",
-    "email_label": "Email me",
-    "email": "Jssgmrs22@gmail.com",
-    "github": "https://github.com/JoaoGuimaraes22",
-    "linkedin": "https://www.linkedin.com/in/joão-sebastião-guimarães-4abaa7197/"
-  }
+  "services": { "title_line1", "title_line2", "items": [{ "icon", "title", "description" }] },
+  "process":  { "title_line1", "title_line2", "steps": [{ "number", "title", "description" }] },
+  "about":    { "title_line1", "title_line2", "bio": "split on \\n\\n", "fun_facts": [{ "emoji", "text" }] },
+  "contact":  { "title_line1", "title_line2", "body", "form_name", "form_email", "form_message",
+                "form_name_placeholder", "form_email_placeholder", "form_message_placeholder",
+                "form_submit", "form_success", "email_label", "email", "github", "linkedin" }
 }
 ```
 
@@ -240,7 +221,7 @@ Note: folder names under `public/projects/` do not always match slugs (e.g. `hai
 - `bg-linear-to-br` not `bg-gradient-to-br`
 - `bg-white/3` not `bg-white/[0.03]`
 - `md:w-88`, `z-60`, `max-w-350` (no arbitrary values for these)
-- Spaces in arbitrary values use underscores: `w-[calc((100%_-_2rem)_/_3.3)]`
+- Arbitrary calc: `w-[calc((100%-2rem)/3)]` — no underscores needed (linter enforces this)
 
 ## Known Gotchas
 
@@ -250,4 +231,6 @@ Note: folder names under `public/projects/` do not always match slugs (e.g. `hai
 - ScrollProgress `z-60` (above Navbar `z-50`)
 - `app/page.tsx` must export a default or build fails
 - Project image folder names don't always match slugs — see Projects table above
-- Use AskUserQuestion if any doubts
+- Navbar is now a client component (`"use client"`) — do not make it a server component again
+- HeroFull is outside the sidebar layout — `id="home"` lives there, not in a section inside `<main>`
+- ScreenshotGallery: use double-rAF for init; suppress resets during smooth scroll (suppressResetRef)
