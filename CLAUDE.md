@@ -41,6 +41,15 @@ app/
       Process.tsx             id="process", numbered steps
       About.tsx               id="about", bio + fun fact cards
       Contact.tsx             id="contact", form + social links
+      ChatWidget.tsx          CLIENT — fixed bottom-right chat, Dialogflow ES, locale-aware
+app/
+  api/
+    chat/route.ts             POST proxy → Dialogflow ES detectIntent
+dialogflow/
+  generate.js                 regenerates all intent JSON files
+  zip.js                      creates portfolio-agent.zip (forward-slash paths)
+  portfolio-agent.zip         ready-to-restore in Dialogflow console
+  intents/                    11 intents (EN + PT) — Welcome, Fallback, services, pricing, timeline, contact, portfolio, availability, about, location, tech-stack
 public/
   profile.jpg                 profile photo
   hero.jpg                    full-viewport hero background (parallax, object-top)
@@ -222,6 +231,17 @@ Note: folder names under `public/projects/` do not always match slugs (e.g. `hai
 - `bg-white/3` not `bg-white/[0.03]`
 - `md:w-88`, `z-60`, `max-w-350` (no arbitrary values for these)
 - Arbitrary calc: `w-[calc((100%-2rem)/3)]` — no underscores needed (linter enforces this)
+
+## Chatbot (Dialogflow ES)
+
+- **Widget**: `app/[locale]/components/ChatWidget.tsx` — CLIENT, fixed bottom-right `z-50`, Framer Motion `AnimatePresence`
+- **API route**: `app/api/chat/route.ts` — proxies to Dialogflow ES REST via `google-auth-library`; never exposes credentials to client
+- **Auth**: `GOOGLE_CREDENTIALS` (full service account JSON, single-line) + `DIALOGFLOW_PROJECT_ID=portfolio-xost` in `.env.local` and Vercel env vars
+- **Session**: `crypto.randomUUID()` in `useState` initializer — one session per browser tab
+- **Locale**: sends `locale` to API route → `languageCode: locale === "pt" ? "pt-PT" : "en"`
+- **Intents**: 11 intents in `dialogflow/intents/` — regenerate with `node dialogflow/generate.js`, rezip with `node dialogflow/zip.js`
+- **Import**: Dialogflow console → Settings → Import & Export → **Restore from zip** using `dialogflow/portfolio-agent.zip`
+- **ZIP must use forward slashes** — PowerShell `Compress-Archive` creates backslash paths that Dialogflow rejects; always use `node dialogflow/zip.js`
 
 ## Known Gotchas
 
