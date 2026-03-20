@@ -7,8 +7,7 @@ import ChatWidget from "./components/ChatWidget";
 import { MotionConfig } from "framer-motion";
 import LangSetter from "./components/LangSetter";
 
-// TODO: Replace with your actual production domain before deploying
-const SITE_URL = "https://your-domain.vercel.app";
+const SITE_URL = "https://sg-development.vercel.app";
 
 export const viewport: Viewport = { width: "device-width", initialScale: 1 };
 
