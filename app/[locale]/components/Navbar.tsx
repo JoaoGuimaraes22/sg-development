@@ -1,3 +1,6 @@
+"use client";
+
+import { useEffect, useState } from "react";
 import { type Locale } from "../../../i18n-config";
 import NavDropdown from "./NavDropdown";
 import LanguageSwitcher from "./LanguageSwitcher";
@@ -18,6 +21,15 @@ interface NavbarProps {
 }
 
 export default function Navbar({ locale, nav }: NavbarProps) {
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > window.innerHeight * 0.8);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   const sections = [
     { id: "home", label: nav.home },
     { id: "work", label: nav.work },
@@ -29,19 +41,27 @@ export default function Navbar({ locale, nav }: NavbarProps) {
   ];
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 flex h-14 items-center justify-between border-b border-zinc-100 bg-white/90 px-4 backdrop-blur-md md:px-8">
+    <header
+      className={`fixed top-0 left-0 right-0 z-50 flex h-14 items-center justify-between px-4 transition-all duration-300 md:px-8 ${
+        scrolled
+          ? "border-b border-zinc-100 bg-white/90 backdrop-blur-md"
+          : "border-b border-white/10 bg-transparent"
+      }`}
+    >
       {/* Logo */}
       <a
         href={`/${locale}`}
-        className="text-sm font-semibold tracking-widest text-zinc-900 uppercase hover:text-indigo-600 transition-colors"
+        className={`text-sm font-semibold tracking-widest uppercase transition-colors duration-300 ${
+          scrolled ? "text-zinc-900 hover:text-indigo-600" : "text-white/90 hover:text-white"
+        }`}
       >
-        JG<span className="text-indigo-600">.</span>
+        JG<span className={scrolled ? "text-indigo-600" : "text-indigo-400"}>.</span>
       </a>
 
       {/* Nav + Language */}
       <div className="flex items-center gap-4">
-        <NavDropdown sections={sections} />
-        <LanguageSwitcher currentLocale={locale} />
+        <NavDropdown sections={sections} scrolled={scrolled} />
+        <LanguageSwitcher currentLocale={locale} scrolled={scrolled} />
       </div>
     </header>
   );

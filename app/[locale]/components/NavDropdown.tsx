@@ -10,9 +10,10 @@ interface NavSection {
 
 interface NavDropdownProps {
   sections: NavSection[];
+  scrolled: boolean;
 }
 
-export default function NavDropdown({ sections }: NavDropdownProps) {
+export default function NavDropdown({ sections, scrolled }: NavDropdownProps) {
   const [activeLabel, setActiveLabel] = useState(sections[0].label);
   const [open, setOpen] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
@@ -57,7 +58,11 @@ export default function NavDropdown({ sections }: NavDropdownProps) {
     <div ref={containerRef} className="relative">
       <button
         onClick={() => setOpen((v) => !v)}
-        className="flex items-center gap-2 rounded-full border border-zinc-200 px-4 py-1.5 text-sm text-zinc-600 transition-colors hover:border-zinc-300 hover:text-zinc-900"
+        className={`flex items-center gap-2 rounded-full border px-4 py-1.5 text-sm transition-colors ${
+          scrolled
+            ? "border-zinc-200 text-zinc-600 hover:border-zinc-300 hover:text-zinc-900"
+            : "border-white/20 text-white/80 hover:border-white/40 hover:text-white"
+        }`}
       >
         <span className="relative flex min-w-20 justify-center overflow-hidden">
           <AnimatePresence mode="wait" initial={false}>
